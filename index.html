@@ -1,0 +1,2880 @@
+<html>
+
+<head>
+
+    <link rel="shortcut icon" href="Programfiles/" type="image/x-icon">
+    <link rel="icon" href="Programfiles/Fivi.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="stylesheetcopy.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="Programfiles/Logodesign.png" alt="Logo">
+        </div>
+        <div class="title">
+            <img src="Programfiles/Frame.svg" alt="Logo">
+        </div>
+        
+ <div style="font-size: 9px;
+                    padding: 12px 14px;
+                    border: none;
+                    font-weight: 200;
+                    background-color: #f9f4d5;
+                    border-radius: 30px;
+                    cursor: pointer;">
+            
+            <a id="link" href="clientslist.html">
+                <img src="Programfiles/Dash.svg" alt="Fullscreen" width="17" height="17">
+            </a>
+        </div>
+
+    </header>
+
+
+    <div class="navcontainer">
+        <div class="steps steps li stepmargin">
+            <ul>
+                <li class="step-menu1 active">
+                    <span>Petitioner</span>
+
+                </li>
+                <li class="step-menu2">
+                    <span>Respondent</span>
+
+                </li>
+                <li class="step-menu3">
+                    <span>Judicial</span>
+
+                </li>
+                <li class="step-menu4">
+                    <span>Payments</span>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="Container">
+
+
+
+
+
+
+        <div class="form-wrapper">
+
+
+
+            <form action="https://sheetdb.io/api/v1/bxaz8o4uqmdx0" method="post" id="sheetdb-form">
+
+
+                <div class="form-step-1 active">
+
+                    <div class="input-flex formmargin">
+                        <div>
+                            <label for="pname" class="label">Client ID *</label>
+                            <input type="number" name="data[Client ID]" placeholder="420" id="clientid" class="form-input" required />
+                        </div>
+                        <div>
+                            <button type="button" id="import-btn">
+                                <img src="Programfiles\Import.svg" width="20" height="20">
+                            </button>
+                            <button type="button" id="generate-btn">
+                                <img src="Programfiles\Generate.svg" width="20" height="20">
+                            </button>
+                        </div>
+                        <div></div>
+                    </div>
+<input type="text" id="datetime" name="data[Created on]" class="invisible">
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="pname" class="label"> First name * </label>
+                            <input type="text" name="data[First name]" placeholder="Name" id="pname" class="form-input" required />
+                        </div>
+                        <div>
+                            <label for="fname" class="label"> Middle name </label>
+                            <input type="text" name="data[Middle name]" placeholder="Middle name" id="fname" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="lname" class="label"> Last name </label>
+                            <input type="text" name="data[Last name]" placeholder="Last name" id="lname" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="address" class="label"> Address </label>
+                            <input type="text" name="data[Address]" id="address" placeholder="Street address" class="form-input" />
+                        </div>
+
+                        <div>
+                            <label for="Phonenumber" class="label"> Phone number </label>
+                            <input type="text" name="data[Phone number]" id="Phonenumber" placeholder="876248978" class="form-input" />
+                        </div>
+
+
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="DatA" class="label"> Designation @ appointment </label>
+                            <input type="text" name="data[Designation @ appointment]" placeholder="Driver" id="DatA" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="DatR" class="label"> Designation @ retirement </label>
+                            <input type="text" name="data[Designation @ retirement]" placeholder="Conductor" id="DatR" class="form-input" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="single">
+                        <label for="DivatR" class="label">Division @ retirement</label>
+                        <select id="DivatR" name="DivatR" class="form-input" onchange="updateShortForm()">
+                            <option style="Select division">Select division</option>
+                            <option value="Bagalkot">Bagalkot</option>
+                            <option value="Belagavi">Belagavi</option>
+                            <option value="Chikodi">Chikodi</option>
+                            <option value="Dharwad">Dharwad</option>
+                            <option value="Hubballi">Hubballi</option>
+                            <option value="Hubballi-Rural">Hubballi-Rural</option>
+                            <option value="Haveri">Haveri</option>
+                            <option value="Gadag">Gadag</option>
+                            <option value="Uttara-Kannada/Sirsi">Uttara-Kannada/Sirsi</option>
+                        </select>
+
+                        <input type="text" id="shortform" class="invisible" name="data[Division at retirement]">
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="dob" class="label"> Date of Birth </label>
+                            <input type="date" name="data[Date of Birth]" id="dob" placeholder="Full name" class="form-input" onchange="convertAndDisplayDate('dob')" />
+
+                            <input type="text" id="dob-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="age" class="label"> Age today </label>
+                            <input type="text" name="age" placeholder="" id="age" class="form-input gray" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="dateOfAppointment" class="label"> Appointment date </label>
+                            <input type="date" name="data[Appointment date]" id="dateOfAppointment" placeholder="Actual date of appointment" class="form-input" onchange="convertAndDisplayDate('dateOfAppointment')" />
+
+                            <input type="text" id="dateOfAppointment-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="dateOfRetirement" class="label"> Retirement date </label>
+                            <input type="date" name="data[Retirement date]" id="dateOfRetirement" placeholder="Date of retirement" class="form-input" onchange="convertAndDisplayDate('dateOfRetirement')" />
+
+                            <input type="text" id="dateOfRetirement-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="totalService" class="label"> Total service </label>
+                        <input type="text" name="data[Total service]" id="totalService" placeholder=" " class="form-input gray" disabled />
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="inactiveServiceY" class="label"> Inactive service in Years </label>
+                            <input type="number" name="data[InactiveY]" placeholder="Years" id="inactiveServiceY" class="form-input" min="0" max="50" />
+                        </div>
+                        <div>
+                            <label for="inactiveServiceM" class="label"> Months </label>
+                            <input type="number" name="data[InactiveM]" placeholder="Months" id="inactiveServiceM" class="form-input" min="0" max="12" />
+                        </div>
+                        <div>
+                            <label for="inactiveServiceD" class="label"> Days </label>
+                            <input type="number" name="data[InactiveD]" placeholder="Days" id="inactiveServiceD" class="form-input" min="0" max="31" />
+                        </div>
+                    </div>
+
+                    <h4>Financial details</h4>
+                    <div class="input-flex">
+                        <div>
+                            <label for="basicSalary" class="label"> Basic </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="basicSalary" name="data[Basic]" min="0" step="0.01" class="form-input num" placeholder="Basic">
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <label for="da" class="label"> BDA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="da" name="data[BDA]" min="0" step="0.01" class="form-input num" placeholder="BDA %">
+                            </div>
+
+                        </div>
+
+
+
+                        <div>
+                            <label for="hra" class="label"> Hra </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">%</span>
+                                <input type="number" id="hra" name="data[Hra]" min="0" step="0.01" class="form-input num" placeholder="HRA ">
+                                <input type="number" id="hrap" name="data[HRA value in Rupees]" min="0" step="0.01" class="invisible" placeholder="HRA percentage">
+
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="cca" class="label"> CCA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="cca" name="data[CCA]" min="0" step="0.01" class="form-input num" placeholder="CCA">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+
+                        <div>
+                            <label for="da" class="label"> Auto Da </label>
+                            <select id="daRet" class="form-input gray"  name="data[Auto Da]" disabled>
+                                <option value=""> </option>
+                                <option value="71">71%</option>
+                                <option value="74">74%</option>
+                                <option value="2.625">2.625%</option>
+                                <option value="79">79%</option>
+                                <option value="12.25">12.25%</option>
+                                <option value="17.5">17.5%</option>
+                                <option value="22.753">22.753%</option>
+                                <option value="26.75">26.75%</option>
+                                <option value="32.75">32.75%</option>
+                                <option value="38">38%</option>
+                                <option value="46">46%</option>
+                                <option value="56.25">56.25%</option>
+                                <option value="62.5">62.5%</option>
+                                <option value="69.5">69.5%</option>
+                                <option value="76.75">76.75%</option>
+                                <option value="0">0%</option>
+                                <option value="4">4%</option>
+                                <option value="9">9%</option>
+                                <option value="15">15%</option>
+                                <option value="21">21%</option>
+                                <option value="25.25">25.25%</option>
+                                <option value="28.75">28.75%</option>
+                                <option value="32.5">32.5%</option>
+                                <option value="36">36%</option>
+                                <option value="40.25">40.25%</option>
+                                <option value="43.25">43.25%</option>
+                                <option value="45.25">45.25%</option>
+                                <option value="1.75">1.75%</option>
+                                <option value="3.75">3.75%</option>
+                                <option value="6.5">6.5%</option>
+                                <option value="11.25">11.25%</option>
+                                <option value="24.5">24.5%</option>
+                                <option value="27.25">27.25%</option>
+                                <option value="31">31%</option>
+                                <option value="38.75">38.75%</option>
+                                <option value="42.5">42.5%</option>
+                            </select>
+
+                        </div>
+                        <div>
+                            <label for="daRet2" class="label">DA on retirement </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="daRet2" name="data[DA on retirement]" min="0" step="0.01" class="form-input gray num" placeholder="DAret" disabled>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="oneMonthPay" class="label"> One month pay </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="text" name="data[One month pay]" id="oneMonthPay" placeholder="One month pay" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="gratuityEntitled" class="label"> Gratuity entitled </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="text" name="data[Gratuity entitled]" id="gratuityEntitled" placeholder="Gratuity entitled" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- step-1 End div-->
+                </div>
+
+                <div class="form-step-2">
+
+                    <div class="single formmargin">
+                        <label for="respondentname" class="label"> Respondent name </label>
+                        <input type="text" name="data[Respondent name]" id="respondentname" placeholder="Full name" class="form-input" />
+                    </div>
+
+                    <div class="single">
+                        <label for="respondentaddress" class="label"> Respondent address </label>
+                        <input type="text" name="data[Respondent address]" id="respondentaddress" placeholder="Street address" class="form-input mb-3" />
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="dateOfAppConsidered" class="label"> Appointment date </label>
+                            <input type="date" name="data[Appointment dater]" id="dateOfAppConsidered" class="form-input" onchange="convertAndDisplayDate('dateOfAppConsidered')" />
+
+                            <input type="text" id="dateOfAppConsidered-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="totalServiceConsidered" class="label"> Service considered </label>
+                            <input type="text" id="totalServiceConsidered" name="data[Service considered]" class="form-input gray" disabled>
+                        </div>
+                    </div>
+                    <h4>Financial details</h4>
+                    <div class="input-flex">
+                        <div>
+                            <label for="basicR" class="label"> Basic </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="basicR" name="data[Basicr]" min="0" step="0.01" class="form-input num" placeholder="Basic">
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="daR" class="label"> DA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="daR" name="data[DAr]" min="0" step="0.01" class="form-input num" placeholder="DA">
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="bdaR" class="label"> BDA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="bdaR" name="data[BDAr]" min="0" step="0.01" class="form-input num" placeholder="BDA">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="gratuityEntitledR" class="label"> Gratuity </label>
+                        <div class="input-group">
+                            <span class="input-group-addon">₹</span>
+                            <input type="number" name="data[Gratuityr]" id="gratuityEntitledR" placeholder="Gratuity as per respo" class="form-input num" />
+                        </div>
+
+                    </div>
+
+
+
+                    <h4>Cheque number </h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="cheque-no-1" class="label"> One </label>
+                            <input type="number" name="data[cheque1]" id="cheque-no-1" placeholder="cheque-no-1" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="cheque-no-2" class="label"> Two </label>
+                            <input type="number" name="data[cheque2]" id="cheque-no-2" placeholder="cheque-no-2" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="cheque-no-3" class="label"> Three </label>
+                            <input type="number" name="data[cheque3]" id="cheque-no-3" placeholder="cheque-no-3" class="form-input mb-3" />
+                        </div>
+                    </div>
+
+                    <!-- step-2 End div-->
+                </div>
+
+
+
+
+
+                <div class="form-step-3">
+
+                    <div class="input-flex formmargin">
+                        <div>
+                            <label for="jname" class="label"> Judge name </label>
+                            <input type="text" name="data[Judge name]" id="jname" placeholder="Kallappa" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="pAdv" class="label"> Petitioner advocate </label>
+                            <input type="text" name="data[Petitioner advocate]" id="pAdv" placeholder="Mallappa" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="resAdv" class="label"> Respondent advocate </label>
+                            <input type="text" name="data[Respondent advocate]" id="resAdv" placeholder="Yallappa" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="rw-1-name" class="label"> RW1 name </label>
+                            <input type="text" name="data[RW1 name]" id="rw-1-name" placeholder="R W-1" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="rw-2-name" class="label"> RW2 name </label>
+                            <input type="text" name="data[RW2 name]" id="rw-2-name" placeholder="R W-2" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="poc" class="label"> Place of court </label>
+                        <input type="text" name="data[Place of court]" id="poc" placeholder="Haveri" class="form-input" />
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="dorp" class="label"> Representation date</label>
+                            <input type="date" name="data[Representation date]" id="dorp" class="form-input" onchange="convertAndDisplayDate('dorp')" />
+
+                            <input type="text" id="dorp-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="doln" class="label"> Legal notice date </label>
+                            <input type="date" name="data[Legal notice date]" id="doln" class="form-input" onchange="convertAndDisplayDate('doln')" />
+
+                            <input type="text" id="doln-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="dateOfAppJ" class="label"> Appointment date </label>
+                            <input type="date" id="dateOfAppJ" name="data[Appointment datej]" class="form-input" onchange="convertAndDisplayDate('dateOfAppJ')" />
+
+                            <input type="text" id="dateOfAppJ-output" class="invisible" disabled />
+
+                            <input type="text" id="dof-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="service-as-per-j" class="label"> Service </label>
+                            <input type="text" name="data[Servicej]" id="service-as-per-j" placeholder="Service as per judge" class="form-input mb-3 gray" disabled />
+
+                            <label for="rounded-service-j" class="label"> Rounded Service </label>
+<input type="text" name="data[RoundedServicej]" id="rounded-service-j" placeholder="Rounded Service" class="form-input mb-3 gray" disabled />
+
+                        </div>
+                    </div>
+                    
+                    <div class="input-flex">
+                        <div>
+                            <label for="dof" class="label"> Filing date </label>
+                            <input type="date" name="data[Filing date]" id="dof" placeholder="dof" class="form-input" onchange="convertAndDisplayDate('dof')" />
+
+                            <input type="text" id="dof-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="email" class="label"> Age on filing date </label>
+                            <input type="text" name="data[Age on filing date]" id="filingAge" placeholder="Age on filing" class="form-input gray" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="caseNo" class="label"> Case number </label>
+                            <input type="number" name="data[Case number]" id="caseNo" placeholder="Case number" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="email" class="label"> Case year </label>
+                            <input type="number" name="data[Case year]" id="caseYear" placeholder="Year" class="form-input w-45" />
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="caseNoOld" class="label"> Old case number </label>
+                        <input type="number" name="data[Old case number]" id="caseNoOld" placeholder="Case number" class="form-input" />
+                    </div>
+
+                    <h4>Financial details</h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="basic-as-per-j" class="label"> Basic </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="basic-as-per-j" name="data[Basicj]" class="form-input num" placeholder="Basic">
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="bda-as-per-j" class="label"> BDA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="bda-as-per-j" name="data[BDAj]" class="form-input num" placeholder="BDA ">
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="da-as-per-j" class="label"> DA </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="da-as-per-j" name="data[DAj]" class="form-input num" placeholder="DA ">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="grty-cal-act-auto" class="label"> Gratuity act </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[Gratuity act]" id="grty-cal-act-auto" placeholder="Gratuity by judge" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="grty-cal-reg-auto" class="label"> Gratuity registry </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[Gratuity registry]" id="grty-cal-reg-auto" placeholder="Gratuity as per reg" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="grty-as-per-j" class="label"> Gratuity entitled </label>
+                        <div class="input-group">
+                            <span class="input-group-addon">₹</span>
+                            <input type="text" name="data[Gratuity entitledj]" id="grty-as-per-j" placeholder="grty-as-per-j" class="form-input gray num" disabled />
+                        </div>
+
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="total-grty-j" class="label"> Total gratuity </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[Total gratuity]" id="total-grty-j" placeholder="Total Gratuity" class="form-input num" />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="grty-diff-j" class="label"> Difference as per Judge</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[Differencej]" id="grty-diff-j" placeholder="70 Difference" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="next-ret">
+                        <input type="date" name="next-ret" id="next-ret" placeholder="next-ret" onchange="convertAndDisplayDate('next-ret')" class=""  />
+                        <input type="text" name="next-ret" id="next-ret-output" placeholder="next-ret" class="" disabled />
+                    </div>
+
+
+
+                    <h4>List of document</h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documentone" class="label"> One </label>
+                            <input type="text" name="data[documentone]" id="documentone" placeholder="Document one" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="doconedate" class="label"> Date </label>
+                            <input type="Date" name="data[doconedate]" id="doconedate" placeholder="Document one" class="form-input w-45" onchange="convertAndDisplayDate('doconedate')" />
+
+                            <input type="text" id="doconedate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documenttwo" class="label"> Two </label>
+                            <input type="text" name="data[documenttwo]" id="documenttwo" placeholder="Document two" class="form-input">
+                        </div>
+                        <div>
+                            <label for="doctwodate" class="label"> Date </label>
+                            <input type="Date" name="data[doctwodate]" id="doctwodate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('doctwodate')" />
+
+                            <input type="text" id="doctwodate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documentthree" class="label"> Three </label>
+                            <input type="text" name="data[documentthree]" id="documentthree" placeholder="Document three" class="form-input">
+                        </div>
+                        <div>
+                            <label for="docthreedate" class="label"> Date </label>
+                            <input type="Date" name="data[docthreedate]" id="docthreedate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('docthreedate')" />
+
+                            <input type="text" id="docthreedate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documentfour" class="label"> Four </label>
+                            <input type="text" name="data[documentfour]" id="documentfour" placeholder="Document four" class="form-input">
+                        </div>
+                        <div>
+                            <label for="docfourdate" class="label"> Date </label>
+                            <input type="Date" name="data[docfourdate]" id="docfourdate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('docfourdate')" />
+
+                            <input type="text" id="docfourdate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documentfive" class="label"> Five </label>
+                            <input type="text" name="data[documentfive]" id="documentfive" placeholder="Document five" class="form-input">
+                        </div>
+                        <div>
+                            <label for="docfivedate" class="label"> Date </label>
+                            <input type="Date" name="data[docfivedate]" id="docfivedate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('docfivedate')" />
+
+                            <input type="text" id="docfivedate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="documentsix" class="label"> Six </label>
+                            <input type="text" name="data[documentsix]" id="documentsix" placeholder="Document six" class="form-input mb-3">
+                        </div>
+                        <div>
+                            <label for="docsixdate" class="label"> Date </label>
+                            <input type="Date" name="data[docsixdate]" id="docsixdate" placeholder="Difference" class="form-input w-45 mb-3" onchange="convertAndDisplayDate('docsixdate')" />
+
+                            <input type="text" id="docsixdate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+                    <h4>Other details </h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="ex-p-last-no" class="label"> Ex-P </label>
+                            <input type="number" name="data[Ex-P]" id="ex-p-last-no" placeholder="Ex-P last number" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="ex-r-last-no" class="label"> Ex-R </label>
+                            <input type="number" name="data[Ex-R]" id="ex-r-last-no" placeholder="Ex-R last number" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="epfiling" class="label"> EP filing date </label>
+                            <input type="date" name="data[EP filing date]" id="epfiling" placeholder="Street address" class="form-input mb-3" onchange="convertAndDisplayDate('epfiling')" />
+
+                            <input type="text" id="epfiling-output" class="invisible" disabled />
+                        </div>
+                        <div>
+                            <label for="orderdate" class="label"> Date of order </label>
+                            <input type="date" name="data[Date of order]" id="orderdate" placeholder="Street address" class="form-input mb-3" onchange="convertAndDisplayDate('orderdate')" />
+
+                            <input type="text" id="orderdate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+
+                    <!-- step-3 End div-->
+                </div>
+
+                <div class="form-step-4">
+
+                    <h4 class="formmargin">Installments</h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="ione" class="label">First</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[ione]" id="ione" placeholder="Amount paid" class="form-input num" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="ionedate" class="label"> Date </label>
+                            <input type="Date" name="data[ionedate]" id="ionedate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('ionedate')" />
+
+                            <input type="text" id="ionedate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="itwo" class="label"> Second </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[itwo]" id="itwo" placeholder="Amount paid" class="form-input num" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="itwodate" class="label"> Date </label>
+                            <input type="Date" name="data[itwodate]" id="itwodate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('itwodate')" />
+
+                            <input type="text" id="itwodate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="ithree" class="label"> Third </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[ithree]" id="ithree" placeholder="Amount paid" class="form-input num" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="ithreedate" class="label"> Date </label>
+                            <input type="Date" name="data[ithreedate]" id="ithreedate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('ithreedate')" />
+
+                            <input type="text" id="ithreedate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="ifour" class="label"> Fourth </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[ifour]" id="ifour" placeholder="Amount paid" class="form-input num" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="ifourdate" class="label"> Date </label>
+                            <input type="Date" name="data[ifourdate]" id="ifourdate" placeholder="Difference" class="form-input w-45" onchange="convertAndDisplayDate('ifourdate')" />
+
+                            <input type="text" id="ifourdate-output" class="invisible" disabled />
+                        </div>
+                    </div>
+
+                    <div class="single">
+                        <label for="amountpaid" class="label"> Total payment </label>
+                        <div class="input-group">
+                            <span class="input-group-addon">₹</span>
+                            <input type="text" name="data[Total payment]" id="amountpaid" placeholder="Amount paid by office" class="form-input gray num" disabled />
+                        </div>
+                    </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="gratuityDifference" class="label"> Gratuity difference </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="text" name="data[gratuityDifference]" id="gratuityDifference" placeholder="37 Difference" class="form-input gray num" disabled />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="delay" class="label"> Delay </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+                                <input type="text" name="data[Delay]" id="delay" placeholder="Delay in payment" class="form-input gray" disabled />
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Balance </h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="bal-amt-auto-1" class="label"> One </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[bal1]" id="bal-amt-auto-1" placeholder="Balance 1" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="bal-amt-auto-2" class="label"> Two </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[bal2]" id="bal-amt-auto-2" placeholder="Balance 2" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="bal-amt-auto-3" class="label"> Three </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[bal3]" id="bal-amt-auto-3" placeholder="Balance 3" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="bal-amt-auto-4" class="label"> Four </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" name="data[bal4]" id="bal-amt-auto-4" placeholder="Balance 4" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                         <input type="text" id="unique-balances" placeholder="Unique Balances" class="invisible" disabled />
+                    </div>
+
+                    <h4>Interest</h4>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="intr-1" class="label"> One </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="intr-1" name="data[intr1]" min="0" step="0.01" class="form-input gray num" placeholder="Interest 1" disabled>
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="intr-2" class="label"> Two </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="intr-2" name="data[intr2]" min="0" step="0.01" class="form-input gray num" placeholder="Interest 2" disabled>
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="intr-3" class="label"> Three </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="intr-3" name="data[intr3]" min="0" step="0.01" class="form-input gray num" placeholder="Interest 3" disabled>
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="intr-4" class="label"> Four </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="number" id="intr-4" name="data[intr4]" min="0" step="0.01" class="form-input gray num" placeholder="Interest 4" disabled>
+                            </div>
+
+                        </div>
+                    </div>
+
+                        <div>
+                            <input type="text" id="unique-interests" placeholder="Unique Interests" class="invisible" disabled />
+                        </div>
+
+                    <div class="input-flex">
+                        <div>
+                            <label for="total-intr" class="label"> Total Interest </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="text" name="data[Total Interest]" id="total-intr" placeholder="Total Interest" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="total-grty-intr" class="label"> Gratuity as per order </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">₹</span>
+                                <input type="text" name="data[Gratuity as per order]" id="total-grty-intr" placeholder="Total grty order" class="form-input gray num" disabled />
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><br><br>
+
+                <div>
+
+                    <div class="file-box2">
+                        <div class="file-input2">
+                            <div>
+                                <input type="submit" id="saving">
+                                <label for="saving" style="display: flex; align-items: center; background: #2cb181;">
+                                    <img src="Programfiles\Save2.svg" style="margin-top: 0px; padding-right: 7px; background:"> Save
+                                </label>
+                            </div>
+
+                            <!--<div>
+                                <input type="reset" id="resetting">
+                                <label for="resetting" style="display: flex; align-items: center;">
+                                    <img src="Programfiles\Reset.svg" style="margin-top: 0px; padding-right: 7px;"> Reset
+                                </label>
+                            </div>-->
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+
+        <div class="file-box">
+            <div class="file-input">
+                <input type="file" id="file-input">
+                <label for="file-input" style="display: flex; align-items: center;">
+                    <img src="Programfiles\Doc.svg" style="margin-top: 0px; padding-right: 10px;"> Select File
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <header class="footer">
+
+        <div class="title2">
+            <img src="Programfiles/Credits.png" alt="title2">
+        </div>
+        <div class="logo">
+            <img src="Programfiles/Logodesign.png" alt="Logo">
+        </div>
+
+
+    </header>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.36.1/docxtemplater.js"></script>
+    <script src="https://unpkg.com/pizzip@3.1.4/dist/pizzip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).scroll(function() {
+            if ($(window).scrollTop() > $('.header').height()) {
+                $('.steps').addClass('fixed-top');
+            } else {
+                $('.steps').removeClass('fixed-top');
+            }
+        });
+
+        //steps**************************************************************************
+        // Add event listeners to step menu items
+
+        const stepMenuOne = document.querySelector('.step-menu1')
+        const stepMenuTwo = document.querySelector('.step-menu2')
+        const stepMenuThree = document.querySelector('.step-menu3')
+        const stepMenuFour = document.querySelector('.step-menu4')
+
+        const stepOne = document.querySelector('.form-step-1')
+        const stepTwo = document.querySelector('.form-step-2')
+        const stepThree = document.querySelector('.form-step-3')
+        const stepFour = document.querySelector('.form-step-4')
+
+
+        stepMenuOne.addEventListener('click', function() {
+            if (stepMenuOne.classList.contains('active')) {
+                return;
+            }
+
+            // Set active menu item and step
+            stepMenuOne.classList.add('active');
+            stepMenuTwo.classList.remove('active');
+            stepMenuThree.classList.remove('active');
+            stepMenuFour.classList.remove('active');
+
+            stepOne.classList.add('active');
+            stepTwo.classList.remove('active');
+            stepThree.classList.remove('active');
+            stepFour.classList.remove('active');
+
+
+        });
+
+        stepMenuTwo.addEventListener('click', function() {
+            if (stepMenuTwo.classList.contains('active')) {
+                return;
+            }
+
+            // Set active menu item and step
+            stepMenuOne.classList.remove('active');
+            stepMenuTwo.classList.add('active');
+            stepMenuThree.classList.remove('active');
+            stepMenuFour.classList.remove('active');
+
+            stepOne.classList.remove('active');
+            stepTwo.classList.add('active');
+            stepThree.classList.remove('active');
+            stepFour.classList.remove('active');
+
+
+        });
+
+        stepMenuThree.addEventListener('click', function() {
+            if (stepMenuThree.classList.contains('active')) {
+                return;
+            }
+
+            // Set active menu item and step
+            stepMenuOne.classList.remove('active');
+            stepMenuTwo.classList.remove('active');
+            stepMenuThree.classList.add('active');
+            stepMenuFour.classList.remove('active');
+
+            stepOne.classList.remove('active');
+            stepTwo.classList.remove('active');
+            stepThree.classList.add('active');
+            stepFour.classList.remove('active');
+
+
+        });
+
+        stepMenuFour.addEventListener('click', function() {
+            if (stepMenuFour.classList.contains('active')) {
+                return;
+            }
+
+            // Set active menu item and step
+            stepMenuOne.classList.remove('active');
+            stepMenuTwo.classList.remove('active');
+            stepMenuThree.classList.remove('active');
+            stepMenuFour.classList.add('active');
+
+            stepOne.classList.remove('active');
+            stepTwo.classList.remove('active');
+            stepThree.classList.remove('active');
+            stepFour.classList.add('active');
+
+
+        });
+
+
+
+
+
+
+
+        //submit event
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+                // you can put any JS code here
+                alert('Saved')
+            });
+        });
+
+
+        //Fetch / Import
+        const clientIdInput = document.getElementById("clientid");
+        const importButton = document.getElementById("import-btn");
+        const pnameipInput = document.getElementById("pname");
+        const fnameipInput = document.getElementById("fname");
+        const lnameipInput = document.getElementById("lname");
+        const addressipInput = document.getElementById("address");
+        const DatAipInput = document.getElementById("DatA");
+        const DatRipInput = document.getElementById("DatR");
+        const dobipInput = document.getElementById("dob");
+        const dateOfAppointmentipInput = document.getElementById("dateOfAppointment");
+        const dateOfRetirementipInput = document.getElementById("dateOfRetirement");
+        const inactiveServiceYipInput = document.getElementById("inactiveServiceY");
+        const inactiveServiceMipInput = document.getElementById("inactiveServiceM");
+        const inactiveServiceDipInput = document.getElementById("inactiveServiceD");
+        const basicSalaryipInput = document.getElementById("basicSalary");
+        const daipInput = document.getElementById("da");
+        const hraipInput = document.getElementById("hra");
+        const ccaipInput = document.getElementById("cca");
+        const respondentnameipInput = document.getElementById("respondentname");
+        const respondentaddressipInput = document.getElementById("respondentaddress");
+        const dateOfAppConsideredipInput = document.getElementById("dateOfAppConsidered");
+        const basicRipInput = document.getElementById("basicR");
+        const daRipInput = document.getElementById("daR");
+        const bdaRipInput = document.getElementById("bdaR");
+        const gratuityEntitledRipInput = document.getElementById("gratuityEntitledR");
+        const chequeno1ipInput = document.getElementById("cheque-no-1");
+        const chequeno2ipInput = document.getElementById("cheque-no-2");
+        const chequeno3ipInput = document.getElementById("cheque-no-3");
+        const jnameipInput = document.getElementById("jname");
+        const pAdvipInput = document.getElementById("pAdv");
+        const resAdvipInput = document.getElementById("resAdv");
+        const rw1nameipInput = document.getElementById("rw-1-name");
+        const rw2nameipInput = document.getElementById("rw-2-name");
+        const pocipInput = document.getElementById("poc");
+        const dorpipInput = document.getElementById("dorp");
+        const dolnipInput = document.getElementById("doln");
+        const dofipInput = document.getElementById("dof");
+        const dateOfAppJipInput = document.getElementById("dateOfAppJ");
+        const caseNoipInput = document.getElementById("caseNo");
+        const caseYearipInput = document.getElementById("caseYear");
+        const caseNoOldipInput = document.getElementById("caseNoOld");
+        const basicasperjipInput = document.getElementById("basic-as-per-j");
+        const bdaasperjipInput = document.getElementById("bda-as-per-j");
+        const daasperjipInput = document.getElementById("da-as-per-j");
+        const documentoneipInput = document.getElementById("documentone");
+        const doconedateipInput = document.getElementById("doconedate");
+        const documenttwoipInput = document.getElementById("documenttwo");
+        const doctwodateipInput = document.getElementById("doctwodate");
+        const documentthreeipInput = document.getElementById("documentthree");
+        const docthreedateipInput = document.getElementById("docthreedate");
+        const documentfouripInput = document.getElementById("documentfour");
+        const docfourdateipInput = document.getElementById("docfourdate");
+        const documentfiveipInput = document.getElementById("documentfive");
+        const docfivedateipInput = document.getElementById("docfivedate");
+        const documentsixipInput = document.getElementById("documentsix");
+        const docsixdateipInput = document.getElementById("docsixdate");
+        const explastnoipInput = document.getElementById("ex-p-last-no");
+        const exrlastnoipInput = document.getElementById("ex-r-last-no");
+        const epfilingipInput = document.getElementById("epfiling");
+        const orderdateipInput = document.getElementById("orderdate");
+        const ioneipInput = document.getElementById("ione");
+        const ionedateipInput = document.getElementById("ionedate");
+        const itwoipInput = document.getElementById("itwo");
+        const itwodateipInput = document.getElementById("itwodate");
+        const ithreeipInput = document.getElementById("ithree");
+        const ithreedateipInput = document.getElementById("ithreedate");
+        const ifouripInput = document.getElementById("ifour");
+        const ifourdateipInput = document.getElementById("ifourdate");
+
+
+
+
+
+        function fetchClientData(clientId) {
+            const apiUrl = "https://sheetdb.io/api/v1/bxaz8o4uqmdx0";
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const matchingClient = data.find(client => client["Client ID"] === clientId.toString());
+                    if (matchingClient) {
+                        pnameipInput.value = matchingClient["First name"];
+                        fnameipInput.value = matchingClient["Middle name"];
+                        lnameipInput.value = matchingClient["Last name"];
+                        addressipInput.value = matchingClient["Address"];
+                        DatAipInput.value = matchingClient["Designation @ appointment"];
+                        DatRipInput.value = matchingClient["Designation @ retirement"];
+                        dobipInput.value = matchingClient["Date of Birth"];
+                        dateOfAppointmentipInput.value = matchingClient["Appointment date"];
+                        dateOfRetirementipInput.value = matchingClient["Retirement date"];
+                        inactiveServiceYipInput.value = matchingClient["InactiveY"];
+                        inactiveServiceMipInput.value = matchingClient["InactiveM"];
+                        inactiveServiceDipInput.value = matchingClient["InactiveD"];
+                        basicSalaryipInput.value = matchingClient["Basic"];
+                        daipInput.value = matchingClient["BDA"];
+                        hraipInput.value = matchingClient["Hra"];
+                        ccaipInput.value = matchingClient["CCA"];
+                        respondentnameipInput.value = matchingClient["Respondent name"];
+                        respondentaddressipInput.value = matchingClient["Respondent address"];
+                        dateOfAppConsideredipInput.value = matchingClient["Appointment dater"];
+                        basicRipInput.value = matchingClient["Basicr"];
+                        daRipInput.value = matchingClient["DAr"];
+                        bdaRipInput.value = matchingClient["BDAr"];
+                        gratuityEntitledRipInput.value = matchingClient["Gratuityr"];
+                        chequeno1ipInput.value = matchingClient["cheque1"];
+                        chequeno2ipInput.value = matchingClient["cheque2"];
+                        chequeno3ipInput.value = matchingClient["cheque3"];
+                        jnameipInput.value = matchingClient["Judge name"];
+                        pAdvipInput.value = matchingClient["Petitioner advocate"];
+                        resAdvipInput.value = matchingClient["Respondent advocate"];
+                        rw1nameipInput.value = matchingClient["RW1 name"];
+                        rw2nameipInput.value = matchingClient["RW2 name"];
+                        pocipInput.value = matchingClient["Place of court"];
+                        dorpipInput.value = matchingClient["Representation date"];
+                        dolnipInput.value = matchingClient["Legal notice date"];
+                        dofipInput.value = matchingClient["Filing date"];
+                        dateOfAppJipInput.value = matchingClient["Appointment datej"];
+                        caseNoipInput.value = matchingClient["Case number"];
+                        caseYearipInput.value = matchingClient["Case year"];
+                        caseNoOldipInput.value = matchingClient["Old case number"];
+                        basicasperjipInput.value = matchingClient["Basicj"];
+                        bdaasperjipInput.value = matchingClient["BDAj"];
+                        daasperjipInput.value = matchingClient["DAj"];
+                        documentoneipInput.value = matchingClient["documentone"];
+                        doconedateipInput.value = matchingClient["doconedate"];
+                        documenttwoipInput.value = matchingClient["documenttwo"];
+                        doctwodateipInput.value = matchingClient["doctwodate"];
+                        documentthreeipInput.value = matchingClient["documentthree"];
+                        docthreedateipInput.value = matchingClient["docthreedate"];
+                        documentfouripInput.value = matchingClient["documentfour"];
+                        docfourdateipInput.value = matchingClient["docfourdate"];
+                        documentfiveipInput.value = matchingClient["documentfive"];
+                        docfivedateipInput.value = matchingClient["docfivedate"];
+                        documentsixipInput.value = matchingClient["documentsix"];
+                        docsixdateipInput.value = matchingClient["docsixdate"];
+                        explastnoipInput.value = matchingClient["Ex-P"];
+                        exrlastnoipInput.value = matchingClient["Ex-R"];
+                        epfilingipInput.value = matchingClient["EP filing date"];
+                        orderdateipInput.value = matchingClient["Date of order"];
+                        ioneipInput.value = matchingClient["ione"];
+                        ionedateipInput.value = matchingClient["ionedate"];
+                        itwoipInput.value = matchingClient["itwo"];
+                        itwodateipInput.value = matchingClient["itwodate"];
+                        ithreeipInput.value = matchingClient["ithree"];
+                        ithreedateipInput.value = matchingClient["ithreedate"];
+                        ifouripInput.value = matchingClient["ifour"];
+                        ifourdateipInput.value = matchingClient["ifourdate"];
+                        calculateAge();
+                        calculatefilingAge();
+                        calculatedelay();
+                        calculateService();
+                        calculatedaOnRet();
+                        calculateOneMonthPay();
+                        calculateGratuity();
+                        calculateAmountR();
+                        calculateDifference();
+                        calculateJService();
+                        calBal();
+                        GratuityAct();
+                        GratuityReg();
+                        compareGratuity();
+                        addOneMonth();
+                        calJDifference();
+                        calculateInterest();
+                        calculateInterest2();
+                        calculateInterest3();
+                        calculateInterest4();
+                        Totalgty();
+                        addDocumentPrefix();
+
+                    } else {
+                        // Handle case when client ID doesn't exist
+                        // Display an error message or perform any other action
+                    }
+                })
+                .catch(error => {
+                    // Handle error when fetching data from the API
+                    // Display an error message or perform any other action
+                });
+        }
+
+        importButton.addEventListener("click", () => {
+            const clientId = clientIdInput.value;
+            if (clientId) {
+                fetchClientData(clientId);
+            }
+        });
+
+
+        //Generate new Client ID      
+        function generateClientId() {
+            // Make an API call to retrieve the latest client ID from the database
+            fetch('https://sheetdb.io/api/v1/bxaz8o4uqmdx0')
+                .then(response => response.json())
+                .then(data => {
+                    // Get the previous client ID from the database
+                    const previousClientId = data[data.length - 1]['Client ID'];
+
+                    // Generate a new client ID by incrementing the previous client ID by 1
+                    const newClientId = parseInt(previousClientId) + 1;
+
+                    // Set the new client ID value in the input field
+                    document.getElementById('clientid').value = newClientId;
+                })
+                .catch(error => {
+                    console.error('Error retrieving client ID:', error);
+                });
+        }
+
+        // Attach the function to the click event of the "Generate Client ID" button
+        document.getElementById('generate-btn').addEventListener('click', generateClientId);
+        
+        
+        
+        //current date 
+window.onload = function () {
+        // Get the input element for date and time
+        const datetimeInput = document.getElementById("datetime");
+
+        // Function to convert UTC date to IST
+        function convertUTCToIST(utcDate) {
+            const dateObj = new Date(utcDate);
+            const offsetInMilliseconds = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
+            dateObj.setTime(dateObj.getTime() + offsetInMilliseconds);
+            return dateObj.toISOString();
+        }
+
+        // Function to auto fill current date and time in the input box in IST
+        function autoFillDateTime() {
+            const currentDate = new Date();
+            const istDateTime = convertUTCToIST(currentDate.toISOString());
+            datetimeInput.value = istDateTime;
+        }
+
+        // Call the autoFillDateTime function when the page is opened or reloaded
+        autoFillDateTime();
+
+        // Intercept the form reset event and prevent the default behavior
+        const myForm = document.getElementById("myForm");
+        myForm.addEventListener("reset", function (event) {
+            event.preventDefault(); // Prevent the form from being reset
+
+            // Manually reset all form fields except the datetime input
+            const formElements = myForm.elements;
+            for (let i = 0; i < formElements.length; i++) {
+                const element = formElements[i];
+                if (element.id !== "datetime") {
+                    element.value = ""; // Reset other form fields
+                }
+            }
+        });
+    };
+
+        //Calculate Age on dob
+
+
+        const dobInput = document.getElementById("dob");
+        const ageInput = document.getElementById("age");
+
+        function calculateAge() {
+            const dob = new Date(dobInput.value);
+            const diffTime = Date.now() - dob.getTime();
+            const ageDate = new Date(diffTime);
+            const ageYear = ageDate.getUTCFullYear() - 1970;
+            const ageMonth = ageDate.getUTCMonth();
+            const ageDay = ageDate.getUTCDate() - 1;
+            ageInput.value = ageYear + " Years, " + ageMonth + " Months, " + ageDay + " Days";
+
+        }
+
+        dobInput.addEventListener("input", calculateAge);
+
+        /*
+                // document prefix
+                const inputs = document.querySelectorAll('input[type="text"][id^="document"]');
+
+                inputs.forEach(function(input, index) {
+                    const prefix = (index + 1) + '. ';
+
+                    input.onkeydown = function(event) {
+                        const cursorPos = this.selectionStart;
+                        if (event.keyCode == 8 && cursorPos <= prefix.length || // Backspace key
+                            event.keyCode == 46 && cursorPos < prefix.length) { // Delete key
+                            event.preventDefault();
+                        }
+                    };
+
+                    input.oninput = function() {
+                        if (this.value.length > 0) {
+                            if (!this.value.startsWith(prefix)) {
+                                this.value = prefix + this.value;
+                            }
+                            if (this.value.length > prefix.length) {
+                                const firstLetter = this.value.charAt(prefix.length).toUpperCase();
+                                const restOfString = this.value.substring(prefix.length + 1);
+                                this.value = prefix + firstLetter + restOfString;
+                            }
+                        }
+                    };
+                });
+        */
+
+        function addDocumentPrefix() {
+            const inputs = document.querySelectorAll('input[type="text"][id^="document"]');
+
+            inputs.forEach(function(input, index) {
+                const prefix = (index + 1) + '. ';
+
+                input.onkeydown = function(event) {
+                    const cursorPos = this.selectionStart;
+                    if (event.keyCode == 8 && cursorPos <= prefix.length || // Backspace key
+                        event.keyCode == 46 && cursorPos < prefix.length) { // Delete key
+                        event.preventDefault();
+                    }
+                };
+
+                input.oninput = function() {
+                    if (this.value.length > 0) {
+                        if (!this.value.startsWith(prefix)) {
+                            this.value = prefix + this.value;
+                        }
+                        if (this.value.length > prefix.length) {
+                            const firstLetter = this.value.charAt(prefix.length).toUpperCase();
+                            const restOfString = this.value.substring(prefix.length + 1);
+                            this.value = prefix + firstLetter + restOfString;
+                        }
+                    }
+                };
+            });
+
+            // Function to add prefix to auto-populated values
+            function addPrefixToAutoPopulated() {
+                inputs.forEach(function(input, index) {
+                    const prefix = (index + 1) + '. ';
+                    if (input.value.length > 0 && !input.value.startsWith(prefix)) {
+                        input.value = prefix + input.value;
+                    }
+                });
+            }
+
+            // Call the function to add prefix to auto-populated values
+            addPrefixToAutoPopulated();
+        }
+
+        // Call the function to execute it
+        addDocumentPrefix();
+
+
+
+
+
+        //select shortform
+        function updateShortForm() {
+            var pocSelect = document.getElementById("DivatR");
+            var shortFormInput = document.getElementById("shortform");
+
+            var selectedOption = pocSelect.value;
+            var shortForm = "";
+
+            switch (selectedOption) {
+                case "Bagalkot":
+                    shortForm = "BGK";
+                    break;
+                case "Belagavi":
+                    shortForm = "BGM";
+                    break;
+                case "Chikodi":
+                    shortForm = "CKD";
+                    break;
+                case "Dharwad":
+                    shortForm = "DWR";
+                    break;
+                case "Hubballi":
+                    shortForm = "HBL";
+                    break;
+                case "Hubballi-Rural":
+                    shortForm = "HBL(R)";
+                    break;
+                case "Haveri":
+                    shortForm = "HVR";
+                    break;
+                case "Gadag":
+                    shortForm = "GDG";
+                    break;
+                case "Uttara-Kannada/Sirsi":
+                    shortForm = "UK";
+                    break;
+
+            }
+
+            shortFormInput.value = shortForm;
+        }
+
+
+
+
+        // get the input elements by ID
+        const cappnameInput = document.getElementById("pname");
+        const capfnameInput = document.getElementById("fname");
+        const caplnameInput = document.getElementById("lname");
+        const cappocInput = document.getElementById("poc");
+        const caprespondentnameInput = document.getElementById("respondentname");
+        const capjnameInput = document.getElementById("jname");
+        const cappAdvInput = document.getElementById("pAdv");
+        const capresAdvInput = document.getElementById("resAdv");
+
+        // add event listeners to the input elements
+        cappnameInput.addEventListener("input", capitalizeFirstLetter);
+        capfnameInput.addEventListener("input", capitalizeFirstLetter);
+        caplnameInput.addEventListener("input", capitalizeFirstLetter);
+        cappocInput.addEventListener("input", capitalizeFirstLetter);
+        caprespondentnameInput.addEventListener("input", capitalizeFirstLetter);
+        capjnameInput.addEventListener("input", capitalizeFirstLetter);
+        cappAdvInput.addEventListener("input", capitalizeFirstLetter);
+        capresAdvInput.addEventListener("input", capitalizeFirstLetter);
+
+        // function to capitalize the first letter
+        function capitalizeFirstLetter() {
+            this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+        }
+
+
+
+        //calculate Age as on date of filing
+
+        const dobInput2 = document.getElementById("dob");
+        const filingDateInput = document.getElementById("dof");
+        const filingageInput = document.getElementById("filingAge");
+
+        function calculatefilingAge() {
+            const fdob = new Date(dobInput2.value);
+            const dof = new Date(filingDateInput.value);
+
+            if (isNaN(fdob.getTime())) {
+                filingageInput.value = "DOB is missing";
+                filingageInput.style.color = "red";
+                return;
+            }
+
+            if (isNaN(dof.getTime())) {
+                filingageInput.value = "Filing Date is missing";
+                filingageInput.style.color = "red";
+                return;
+            }
+
+            filingageInput.style.color = ""; // Reset to the default text color
+
+            const fdiffTime = dof.getTime() - fdob.getTime();
+            const fageDate = new Date(fdiffTime);
+            const fageYear = fageDate.getUTCFullYear() - 1970;
+            const fageMonth = fageDate.getUTCMonth();
+            const fageDay = fageDate.getUTCDate() - 1;
+            filingageInput.value = fageYear + " Years, " + fageMonth + " Months, " + fageDay + " Days";
+
+        }
+
+        dobInput2.addEventListener("input", calculatefilingAge);
+        filingDateInput.addEventListener("input", calculatefilingAge);
+
+
+
+        //Select DA % from chart 
+
+        const daRet = [{
+                startDate: new Date('2005-07-01'),
+                endDate: new Date('2005-12-31'),
+                rate: 71.0
+            },
+            {
+                startDate: new Date('2006-01-01'),
+                endDate: new Date('2006-03-31'),
+                rate: 74.0
+            },
+            {
+                startDate: new Date('2006-04-01'),
+                endDate: new Date('2006-06-30'),
+                rate: 2.625
+            },
+            {
+                startDate: new Date('2006-07-01'),
+                endDate: new Date('2006-12-31'),
+                rate: 79.0
+            },
+            {
+                startDate: new Date('2007-01-01'),
+                endDate: new Date('2007-06-30'),
+                rate: 12.25
+            },
+            {
+                startDate: new Date('2007-07-01'),
+                endDate: new Date('2007-12-31'),
+                rate: 17.5
+            },
+            {
+                startDate: new Date('2008-01-01'),
+                endDate: new Date('2008-06-30'),
+                rate: 22.753
+            },
+            {
+                startDate: new Date('2008-07-01'),
+                endDate: new Date('2008-12-31'),
+                rate: 26.75
+            },
+            {
+                startDate: new Date('2009-01-01'),
+                endDate: new Date('2009-06-30'),
+                rate: 32.75
+            },
+            {
+                startDate: new Date('2009-07-01'),
+                endDate: new Date('2009-12-31'),
+                rate: 38.0
+            },
+            {
+                startDate: new Date('2010-01-01'),
+                endDate: new Date('2010-06-30'),
+                rate: 46.0
+            },
+            {
+                startDate: new Date('2010-07-01'),
+                endDate: new Date('2010-12-31'),
+                rate: 56.25
+            },
+            {
+                startDate: new Date('2011-01-01'),
+                endDate: new Date('2011-06-30'),
+                rate: 62.5
+            },
+            {
+                startDate: new Date('2011-07-01'),
+                endDate: new Date('2011-12-31'),
+                rate: 69.5
+            },
+            {
+                startDate: new Date('2012-01-01'),
+                endDate: new Date('2012-03-31'),
+                rate: 76.75
+            },
+            {
+                startDate: new Date('2012-04-01'),
+                endDate: new Date('2012-06-30'),
+                rate: 0.0
+            },
+            {
+                startDate: new Date('2012-07-01'),
+                endDate: new Date('2012-12-31'),
+                rate: 4.0
+            },
+            {
+                startDate: new Date('2013-01-01'),
+                endDate: new Date('2013-06-30'),
+                rate: 9.0
+            },
+            {
+                startDate: new Date('2013-07-01'),
+                endDate: new Date('2013-12-31'),
+                rate: 15.0
+            },
+            {
+                startDate: new Date('2014-01-01'),
+                endDate: new Date('2014-06-30'),
+                rate: 21.0
+            },
+            {
+                startDate: new Date('2014-07-01'),
+                endDate: new Date('2014-12-31'),
+                rate: 25.25
+            },
+            {
+                startDate: new Date('2015-01-01'),
+                endDate: new Date('2015-06-30'),
+                rate: 28.75
+            },
+            {
+                startDate: new Date('2015-07-01'),
+                endDate: new Date('2015-12-31'),
+                rate: 32.5
+            },
+            {
+                startDate: new Date('2016-01-01'),
+                endDate: new Date('2016-06-30'),
+                rate: 36.0
+            },
+            {
+                startDate: new Date('2016-07-01'),
+                endDate: new Date('2016-12-31'),
+                rate: 40.25
+            },
+            {
+                startDate: new Date('2017-01-01'),
+                endDate: new Date('2017-06-30'),
+                rate: 43.25
+            },
+            {
+                startDate: new Date('2017-07-01'),
+                endDate: new Date('2018-03-31'),
+                rate: 45.25
+            },
+            {
+                startDate: new Date('2018-04-01'),
+                endDate: new Date('2018-06-30'),
+                rate: 1.75
+            },
+            {
+                startDate: new Date('2018-07-01'),
+                endDate: new Date('2018-12-31'),
+                rate: 3.75
+            },
+            {
+                startDate: new Date('2019-01-01'),
+                endDate: new Date('2019-06-30'),
+                rate: 6.5
+            },
+            {
+                startDate: new Date('2019-07-01'),
+                endDate: new Date('2021-06-30'),
+                rate: 11.25
+            },
+            {
+                startDate: new Date('2021-07-01'),
+                endDate: new Date('2022-06-30'),
+                rate: 24.5
+            },
+            {
+                startDate: new Date('2022-07-01'),
+                endDate: new Date('2022-12-31'),
+                rate: 27.25
+            },
+            {
+                startDate: new Date('2023-01-01'),
+                endDate: new Date('2023-06-30'),
+                rate: 31.0
+            },
+            {
+                startDate: new Date('2023-07-01'),
+                endDate: new Date('2023-12-31'),
+                rate: 38.75
+            },
+            {
+                startDate: new Date('2024-01-01'),
+                endDate: new Date('2024-06-03'),
+                rate: 42.5
+            }           
+        ];
+        
+        daRet.sort((a, b) => a.startDate - b.startDate);
+
+        const dateOfRetirementInput = document.getElementById('dateOfRetirement');
+        const daRateSelect = document.getElementById('daRet');
+
+        dateOfRetirementInput.addEventListener('input', (event) => {
+            const retirementDate = new Date(event.target.value);
+            const daRate = daRet.find((daRate) => retirementDate >= daRate.startDate && retirementDate <= daRate.endDate);
+            if (daRate) {
+                daRateSelect.value = daRate.rate;
+                console.log('Selected DA Rate:', daRate.rate);
+            } else {
+                //handle error: retirement date is outside of available DA rates
+            }
+            calculatedaOnRet();
+
+        });
+
+
+        //delay in payment
+
+const rdateInput = document.getElementById("next-ret");
+const ionedatedelayInput = document.getElementById("ifourdate");
+const delayInput = document.getElementById("delay");
+
+function calculatedelay() {
+    const rdate = new Date(rdateInput.value);
+    const ionedatedelay = new Date(ionedatedelayInput.value);
+
+    let yearsDiff = ionedatedelay.getFullYear() - rdate.getFullYear();
+    let monthsDiff = ionedatedelay.getMonth() - rdate.getMonth();
+    let daysDiff = ionedatedelay.getDate() - rdate.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        // Handle days adjustment correctly by using the previous month from `rdate`
+        daysDiff += new Date(rdate.getFullYear(), rdate.getMonth() + 1, 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    delayInput.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+}
+
+rdateInput.addEventListener("input", calculatedelay);
+ionedatedelayInput.addEventListener("input", calculatedelay);
+
+
+
+
+
+
+        // 19] Total service 
+
+const appInput = document.getElementById("dateOfAppointment");
+const retInput = document.getElementById("dateOfRetirement");
+const totalservice = document.getElementById("totalService");
+
+const appConInput = document.getElementById("dateOfAppConsidered");
+const serCon = document.getElementById("totalServiceConsidered");
+
+function calculateService() {
+    const app = new Date(appInput.value);
+    const ret = new Date(retInput.value);
+    const appCon = new Date(appConInput.value);
+
+    // Calculate total service considered
+    let yearsDiffCon = ret.getFullYear() - appCon.getFullYear();
+    let monthsDiffCon = ret.getMonth() - appCon.getMonth();
+    let daysDiffCon = ret.getDate() - appCon.getDate();
+
+    if (daysDiffCon < 0) {
+        monthsDiffCon--;
+        daysDiffCon += new Date(appCon.getFullYear(), appCon.getMonth() + 1, 0).getDate();
+    }
+
+    if (monthsDiffCon < 0) {
+        yearsDiffCon--;
+        monthsDiffCon += 12;
+    }
+
+    // Calculate total service
+    let yearsDiff = ret.getFullYear() - app.getFullYear();
+    let monthsDiff = ret.getMonth() - app.getMonth();
+    let daysDiff = ret.getDate() - app.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(app.getFullYear(), app.getMonth() + 1, 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    totalservice.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+    serCon.value = yearsDiffCon + " Years, " + monthsDiffCon + " Months, " + daysDiffCon + " Days";
+
+    calculateGratuity();
+}
+
+appInput.addEventListener("input", calculateService);
+retInput.addEventListener("input", calculateService);
+appConInput.addEventListener("input", calculateService);
+
+
+
+
+        // 23] Da on retirement      
+
+        function calculatedaOnRet() {
+            const basicSalary = Number(document.getElementById("basicSalary").value);
+            const da = Number(document.getElementById("da").value);
+            const daRetcal = Number(document.getElementById("daRet").value);
+
+
+            const daOnRet = (basicSalary + da) * daRetcal / 100;
+
+            document.getElementById("daRet2").value = daOnRet.toFixed(0);
+            calculateOneMonthPay();
+
+        }
+
+        document.getElementById("basicSalary").addEventListener("input", calculatedaOnRet);
+        document.getElementById("da").addEventListener("input", calculatedaOnRet);
+
+
+        // 26] One month pay  new     
+
+        function calculateOneMonthPay() {
+            const basicSalary = Number(document.getElementById("basicSalary").value);
+            const da = Number(document.getElementById("da").value);
+            const daR = Number(document.getElementById("daRet2").value);
+            const hra = Number(document.getElementById("hra").value);
+            const cca = Number(document.getElementById("cca").value);
+
+            const oneMonthPay = basicSalary + da + daR + (hra / 100) * basicSalary + cca;
+            const hraper = basicSalary * (hra / 100);
+
+            document.getElementById("oneMonthPay").value = oneMonthPay.toFixed(0);
+            document.getElementById("hrap").value = hraper.toFixed(0);
+            calculateGratuity()
+        }
+
+        document.getElementById("basicSalary").addEventListener("input", calculateOneMonthPay);
+        document.getElementById("da").addEventListener("input", calculateOneMonthPay);
+        document.getElementById("hra").addEventListener("input", calculateOneMonthPay);
+        document.getElementById("cca").addEventListener("input", calculateOneMonthPay);
+
+
+
+
+        // 27] GratuityEntitled unchanged old
+
+        function calculateGratuity() {
+            const oneMonthPay = Number(document.getElementById("oneMonthPay").value);
+            const sageYear1 = Number(document.getElementById("totalService").value.split(" ")[0]);
+            const sageYear2 = Number(document.getElementById("totalService").value.split(" ")[2]);
+            const sageYear3 = Number(document.getElementById("totalService").value.split(" ")[4]);
+
+
+            const gratuity1 = oneMonthPay * sageYear1;
+            const gratuity2 = oneMonthPay * (sageYear2 / 12);
+            const gratuity3 = oneMonthPay * (sageYear3 / 365);
+            //Gratuity2 is gratuity for months 
+
+
+
+            const totalGratuity = gratuity1 + gratuity2 + gratuity3;
+
+            document.getElementById("gratuityEntitled").value = totalGratuity.toFixed(0);
+            calculateDifference();
+        }
+
+
+        // 36] Total amount paid by respo
+
+        function calculateAmountR() {
+            const ionetap = Number(document.getElementById("ione").value);
+            const itwotap = Number(document.getElementById("itwo").value);
+            const ithreetap = Number(document.getElementById("ithree").value);
+            const ifourtap = Number(document.getElementById("ifour").value);
+
+
+            const AmountR = ionetap + itwotap + ithreetap + ifourtap;
+
+            document.getElementById("amountpaid").value = AmountR.toFixed(0);
+            calculateGratuity()
+            calculateDifference()
+            calJDifference()
+        }
+
+        document.getElementById("ione").addEventListener("input", calculateAmountR);
+        document.getElementById("itwo").addEventListener("input", calculateAmountR);
+        document.getElementById("ithree").addEventListener("input", calculateAmountR);
+        document.getElementById("ifour").addEventListener("input", calculateAmountR);
+
+
+        // 37] Difference 
+
+        function calculateDifference() {
+            const totalGratuity = Number(document.getElementById("gratuityEntitled").value);
+            const amountPaid = Number(document.getElementById("amountpaid").value);
+
+            const difference = totalGratuity - amountPaid;
+
+            document.getElementById("gratuityDifference").value = difference.toFixed(0);
+        }
+
+        //document.getElementById("gratuityEntitled").addEventListener("input", calculateDifference);
+        //document.getElementById("amountpaid").addEventListener("input", calculateDifference);      
+
+
+
+
+
+        // 66] Total service J 
+
+const JappInput = document.getElementById("dateOfAppJ");
+const JretInput = document.getElementById("dateOfRetirement");
+const Jservice = document.getElementById("service-as-per-j");
+
+function calculateJService() {
+    const Japp = new Date(JappInput.value);
+    const Jret = new Date(JretInput.value);
+
+    let yearsDiff = Jret.getFullYear() - Japp.getFullYear();
+    let monthsDiff = Jret.getMonth() - Japp.getMonth();
+    let daysDiff = Jret.getDate() - Japp.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(Japp.getFullYear(), Japp.getMonth() + 1, 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    Jservice.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+
+    GratuityAct();
+    GratuityReg();
+}
+
+JappInput.addEventListener("input", calculateJService);
+JretInput.addEventListener("input", calculateJService);
+
+
+
+
+        // 55] Bal amt 1    
+
+        function calBal() {
+            const highG = Number(document.getElementById("grty-as-per-j").value);
+            const ioneb1 = Number(document.getElementById("ione").value);
+
+
+            const bal1 = highG - ioneb1;
+            //console.log("highG:", highG)
+            //console.log("ioneb1:", ioneb1)
+
+            document.getElementById("bal-amt-auto-1").value = bal1.toFixed(0);
+
+            calBal2();
+            calculateInterest2();
+
+        }
+
+        document.getElementById("grty-as-per-j").addEventListener("input", calBal);
+        document.getElementById("ione").addEventListener("input", calBal);
+
+
+
+        // 56] Bal amt 2    
+
+        function calBal2() {
+            const secbal1 = Number(document.getElementById("bal-amt-auto-1").value);
+            const itwob2 = Number(document.getElementById("itwo").value);
+
+            const bal2 = secbal1 - itwob2;
+
+
+            document.getElementById("bal-amt-auto-2").value = bal2.toFixed(0);
+            calBal3();
+            calculateInterest3();
+        }
+
+        document.getElementById("itwo").addEventListener("input", calBal2);
+
+
+
+        // 56] Bal amt 3    
+
+        function calBal3() {
+            const secbal2 = Number(document.getElementById("bal-amt-auto-2").value);
+            const ithreeb3 = Number(document.getElementById("ithree").value);
+            const rbal3 = secbal2 - ithreeb3;
+
+            document.getElementById("bal-amt-auto-3").value = rbal3.toFixed(0);
+            calBal4();
+            calculateInterest4();
+
+        }
+
+        document.getElementById("ithree").addEventListener("input", calBal3);
+
+
+        // 56] Bal amt 4    
+
+        function calBal4() {
+            const thibal3 = Number(document.getElementById("bal-amt-auto-3").value);
+            const ifour4 = Number(document.getElementById("ifour").value);
+            const rbal4 = thibal3 - ifour4;
+
+            document.getElementById("bal-amt-auto-4").value = rbal4.toFixed(0);
+            //calculateInterest4();
+            updateUniqueBalances();
+
+        }
+
+        document.getElementById("ifour").addEventListener("input", calBal4);
+
+
+
+        function updateUniqueBalances() {
+    // Get the values from the balance fields
+    const balance1 = parseFloat(document.getElementById("bal-amt-auto-1").value);
+    const balance2 = parseFloat(document.getElementById("bal-amt-auto-2").value);
+    const balance3 = parseFloat(document.getElementById("bal-amt-auto-3").value);
+    const balance4 = parseFloat(document.getElementById("bal-amt-auto-4").value);
+    
+    // Create an array of balances
+    let balances = [balance1, balance2, balance3, balance4];
+    
+    // Filter out invalid (NaN) values
+    balances = balances.filter(balance => !isNaN(balance));
+    
+    // Remove duplicates using a Set
+    let uniqueBalances = [...new Set(balances)];
+    
+    // Prefix each balance with ₹
+    uniqueBalances = uniqueBalances.map(balance => `₹${balance}`);
+    
+    // Join the unique balances with commas
+    const displayBalances = uniqueBalances.join(", ");
+    
+    // Update the new input field with the unique balances
+    document.getElementById("unique-balances").value = displayBalances;
+}
+
+// Call the update function when needed (e.g., after balance calculation)
+
+
+
+
+        // 53] Grty as per act
+
+        function GratuityAct() {
+            const basicJ = Number(document.getElementById("basic-as-per-j").value);
+            const bdaJ = Number(document.getElementById("bda-as-per-j").value);
+            const daJ = Number(document.getElementById("da-as-per-j").value);
+
+            const SyearJ = Number(document.getElementById("rounded-service-j").value.split(" ")[0]);
+            const SmonthJ = Number(document.getElementById("rounded-service-j").value.split(" ")[2]);
+            const SdayJ = Number(document.getElementById("rounded-service-j").value.split(" ")[4]);
+
+            const gratuityY = ((basicJ + bdaJ + daJ) * SyearJ * 15) / 26;
+            const gratuityM = ((basicJ + bdaJ + daJ) * (SmonthJ / 12) * 15) / 26;
+            const gratuityD = ((basicJ + bdaJ + daJ) * (SdayJ / 365) * 15) / 26;
+
+            const GratuityJ = gratuityY + gratuityM;
+
+            //console.log("Grty as per actY:", gratuityY);
+            //console.log("Grty as per actM:", gratuityM);
+            //console.log("Grty as per actD:", gratuityD);
+
+
+            document.getElementById("grty-cal-act-auto").value = GratuityJ.toFixed(0);
+            compareGratuity();
+            calculateRoundedService();
+
+        }
+
+        document.getElementById("basic-as-per-j").addEventListener("input", GratuityAct);
+        document.getElementById("bda-as-per-j").addEventListener("input", GratuityAct);
+        document.getElementById("da-as-per-j").addEventListener("input", GratuityAct);
+
+
+
+           //53a]
+           const JroundedService = document.getElementById("rounded-service-j");
+
+function calculateRoundedService() {
+    const Japp = new Date(JappInput.value);
+    const Jret = new Date(JretInput.value);
+
+    const JdiffTime = Jret.getTime() - Japp.getTime();
+    const JDate = new Date(JdiffTime);
+    const JYear = JDate.getUTCFullYear() - 1970;
+    const JMonth = JDate.getUTCMonth();
+
+    // Round down if months < 6, else add 1 year
+    const roundedYear = JMonth < 6 ? JYear : JYear + 1;
+
+    // Set the value of the rounded service input field
+    JroundedService.value = roundedYear + " Years, 0 Months, 0 Days";
+}
+
+// Trigger the calculateRoundedService function when the input values change
+JappInput.addEventListener("input", calculateRoundedService);
+JretInput.addEventListener("input", calculateRoundedService);
+
+
+
+
+        // 54] Grty as per reg
+
+        function GratuityReg() {
+            const basicReg = Number(document.getElementById("basic-as-per-j").value);
+            const bdaReg = Number(document.getElementById("bda-as-per-j").value);
+
+
+            const SyearR = Number(document.getElementById("service-as-per-j").value.split(" ")[0]);
+            const SmonthR = Number(document.getElementById("service-as-per-j").value.split(" ")[2]);
+            const SdayR = Number(document.getElementById("service-as-per-j").value.split(" ")[4]);
+
+            const RgrtyY = (basicReg + bdaReg) * SyearR;
+            const RgrtyM = (basicReg + bdaReg) * SmonthR / 12;
+            const RgrtyD = (basicReg + bdaReg) * SdayR / 365;
+
+            /*console.log("Grty as per regY: ", RgrtyY);
+            console.log("Grty as per regM: ", RgrtyM);
+            console.log("Grty as per regD: ", RgrtyD);*/
+
+            const RgrtyT = RgrtyY + RgrtyM;
+
+            //console.log("RgrtyT: ", RgrtyT);
+
+            document.getElementById("grty-cal-reg-auto").value = RgrtyT.toFixed(0);
+            compareGratuity()
+
+        }
+
+        document.getElementById("basic-as-per-j").addEventListener("input", GratuityReg);
+        document.getElementById("bda-as-per-j").addEventListener("input", GratuityReg);
+
+
+        // 67] Compare and display higest    
+
+        const grtyCalActAuto = document.getElementById("grty-cal-act-auto");
+        const grtyCalRegAuto = document.getElementById("grty-cal-reg-auto");
+        const grtyCalMax = document.getElementById("grty-as-per-j");
+
+        function compareGratuity() {
+            if (Number(grtyCalActAuto.value) > Number(grtyCalRegAuto.value)) {
+                grtyCalMax.value = grtyCalActAuto.value;
+            } else {
+                grtyCalMax.value = grtyCalRegAuto.value;
+            }
+
+            calculateInterest();
+            calBal();
+        }
+
+        grtyCalActAuto.addEventListener("input", compareGratuity);
+        grtyCalRegAuto.addEventListener("input", compareGratuity);
+
+
+
+        // 71] One month after retirement
+
+        const dateOfRetirement = document.getElementById("dateOfRetirement");
+        const oneMonthAfterRetirement = document.getElementById("next-ret");
+
+        function addOneMonth() {
+            const retirementDate = new Date(dateOfRetirement.value);
+            const oneMonthAfter = new Date(retirementDate.setMonth(retirementDate.getMonth() + 1));
+            oneMonthAfterRetirement.value = oneMonthAfter.toISOString().slice(0, 10);
+
+            updateNextRetOutput();
+
+            //console.log("One month after retirement:", oneMonthAfter);
+            calculateInterest();
+        }
+
+        dateOfRetirement.addEventListener("input", addOneMonth);
+
+
+
+        // 70] Difference as per J 
+
+        function calJDifference() {
+            const higherG = Number(document.getElementById("grty-as-per-j").value); //pass calJDifference in higher
+            const JamountPaid = Number(document.getElementById("amountpaid").value);
+
+            const Jdifference = higherG - JamountPaid;
+
+            //console.log("Calculated Jdifference:", Jdifference);
+
+            document.getElementById("grty-diff-j").value = Jdifference.toFixed(0);
+            Totalgty();
+        }
+
+
+
+        // 72] Interest 1      
+const principalAmountInput = document.getElementById("grty-as-per-j");
+const accountOpenInput = document.getElementById("next-ret");
+const accountCloseInput = document.getElementById("ionedate");
+const interestInput = document.getElementById("intr-1");
+
+function calculateInterest() {
+
+    // Time calculation    
+    const itrOpen1 = new Date(accountOpenInput.value);
+    const itrClose1 = new Date(accountCloseInput.value);
+
+    let yearsDiff = itrClose1.getFullYear() - itrOpen1.getFullYear();
+    let monthsDiff = itrClose1.getMonth() - itrOpen1.getMonth();
+    let daysDiff = itrClose1.getDate() - itrOpen1.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(itrClose1.getFullYear(), itrClose1.getMonth(), 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    filingageInput.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+    
+    // Interest calculation
+    const principalAmount = Number(principalAmountInput.value);
+    const itrty1 = yearsDiff + (monthsDiff / 12) + (daysDiff / 365);
+    const interestY = principalAmount * 0.1 * itrty1;
+    
+    const Tinterest = interestY;
+
+    interestInput.value = Tinterest.toFixed(0);
+    calculateTotalInterest();
+}
+
+document.getElementById("ionedate").addEventListener("input", calculateInterest);
+
+
+
+
+
+        // 73] Interest 2      
+const principalAmount2Input = document.getElementById("bal-amt-auto-1");
+const accountOpen2Input = document.getElementById("ionedate");
+const accountClose2Input = document.getElementById("itwodate");
+const interest2Input = document.getElementById("intr-2");
+
+function calculateInterest2() {
+
+    // Time calculation    
+    const itrOpen2 = new Date(accountOpen2Input.value);
+    const itrClose2 = new Date(accountClose2Input.value);
+
+    let yearsDiff = itrClose2.getFullYear() - itrOpen2.getFullYear();
+    let monthsDiff = itrClose2.getMonth() - itrOpen2.getMonth();
+    let daysDiff = itrClose2.getDate() - itrOpen2.getDate();
+
+    // Adjust if the current month/day is earlier in the closing date than in the opening date
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(itrClose2.getFullYear(), itrClose2.getMonth(), 0).getDate(); // Add the number of days in the previous month
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    interest2Input.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+    //console.log("interest Year 2: ", yearsDiff, monthsDiff, daysDiff);
+
+    // Interest calculation
+    const principalAmount2 = Number(principalAmount2Input.value);
+    const itrty2 = yearsDiff + (monthsDiff / 12) + (daysDiff / 365);
+    const interestY2 = principalAmount2 * 0.1 * itrty2;
+    
+    //console.log("i2 principalAmount: ", principalAmount2, "total years:", itrty2);
+
+    const Tinterest2 = interestY2;
+
+    interest2Input.value = Tinterest2.toFixed(0); // display interest value with no decimal places
+    calculateTotalInterest();
+}
+
+document.getElementById("ionedate").addEventListener("input", calculateInterest2);
+document.getElementById("itwodate").addEventListener("input", calculateInterest2);
+
+
+
+
+        
+        // 74] Interest 3      
+const principalAmount3Input = document.getElementById("bal-amt-auto-2");
+const accountOpen3Input = document.getElementById("itwodate");
+const accountClose3Input = document.getElementById("ithreedate");
+const interest3Input = document.getElementById("intr-3");
+
+function calculateInterest3() {
+
+    // Time calculation    
+    const itrOpen3 = new Date(accountOpen3Input.value);
+    const itrClose3 = new Date(accountClose3Input.value);
+
+    let yearsDiff = itrClose3.getFullYear() - itrOpen3.getFullYear();
+    let monthsDiff = itrClose3.getMonth() - itrOpen3.getMonth();
+    let daysDiff = itrClose3.getDate() - itrOpen3.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(itrClose3.getFullYear(), itrClose3.getMonth(), 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    interest3Input.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+    //console.log("interest Year 3: ", yearsDiff, monthsDiff, daysDiff);
+
+    // Interest calculation
+    const principalAmount3 = Number(principalAmount3Input.value);
+    const itrty3 = yearsDiff + (monthsDiff / 12) + (daysDiff / 365);
+    const interestY3 = principalAmount3 * 0.1 * itrty3;
+    
+    //console.log("i3 principalAmount: ", principalAmount3, "total years:", itrty3);
+
+    const Tinterest3 = interestY3;
+
+    interest3Input.value = Tinterest3.toFixed(0); // display interest value with no decimal places
+    calculateTotalInterest();
+}
+
+document.getElementById("ithreedate").addEventListener("input", calculateInterest3);
+document.getElementById("itwodate").addEventListener("input", calculateInterest3);
+
+
+
+
+// 75] Interest 4     
+const principalAmount4Input = document.getElementById("bal-amt-auto-3");
+const accountOpen4Input = document.getElementById("ithreedate");
+const accountClose4Input = document.getElementById("epfiling");
+const interest4Input = document.getElementById("intr-4");
+
+function calculateInterest4() {
+
+    // Time calculation    
+    const itrOpen4 = new Date(accountOpen4Input.value);
+    const itrClose4 = new Date(accountClose4Input.value);
+
+    let yearsDiff = itrClose4.getFullYear() - itrOpen4.getFullYear();
+    let monthsDiff = itrClose4.getMonth() - itrOpen4.getMonth();
+    let daysDiff = itrClose4.getDate() - itrOpen4.getDate();
+
+    if (daysDiff < 0) {
+        monthsDiff--;
+        daysDiff += new Date(itrClose4.getFullYear(), itrClose4.getMonth(), 0).getDate();
+    }
+
+    if (monthsDiff < 0) {
+        yearsDiff--;
+        monthsDiff += 12;
+    }
+
+    interest4Input.value = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days";
+    //console.log("interest Year 4: ", yearsDiff, monthsDiff, daysDiff);
+
+    // Interest calculation
+    const principalAmount4 = Number(principalAmount4Input.value);
+    const itrty4 = yearsDiff + (monthsDiff / 12) + (daysDiff / 365);
+    const interestY4 = principalAmount4 * 0.1 * itrty4;
+    
+    //console.log("i4 principalAmount: ", principalAmount4, "total years:", itrty4);
+
+    const Tinterest4 = interestY4;
+
+    interest4Input.value = Tinterest4.toFixed(0); // display interest value with no decimal places
+    calculateTotalInterest();
+    updateUniqueInterests();
+}
+
+document.getElementById("epfiling").addEventListener("input", calculateInterest4);
+document.getElementById("ithreedate").addEventListener("input", calculateInterest4);
+
+
+
+
+        function updateUniqueInterests() {
+    // Get the values from the interest fields
+    const interest1 = parseFloat(document.getElementById("intr-1").value);
+    const interest2 = parseFloat(document.getElementById("intr-2").value);
+    const interest3 = parseFloat(document.getElementById("intr-3").value);
+    const interest4 = parseFloat(document.getElementById("intr-4").value);
+    
+    // Create an array of interests
+    let interests = [interest1, interest2, interest3, interest4];
+    
+    // Filter out invalid (NaN) values
+    interests = interests.filter(interest => !isNaN(interest));
+    
+    // Remove duplicates using a Set
+    let uniqueInterests = [...new Set(interests)];
+    
+    // Prefix each interest with ₹
+    uniqueInterests = uniqueInterests.map(interest => `₹${interest}`);
+    
+    // Join the unique interests with commas
+    const displayInterests = uniqueInterests.join(", ");
+    
+    // Update the new input field with the unique interests
+    document.getElementById("unique-interests").value = displayInterests;
+
+}
+
+
+
+
+
+
+        // 76] Total Interest
+
+        const ttinterest1 = document.getElementById('intr-1');
+        const ttinterest2 = document.getElementById('intr-2');
+        const ttinterest3 = document.getElementById('intr-3');
+        const ttinterest4 = document.getElementById('intr-4');
+        const tttotalInterest = document.getElementById('total-intr');
+
+
+        function calculateTotalInterest() {
+            const ttinterest1Value = parseFloat(ttinterest1.value) || 0;
+            const ttinterest2Value = parseFloat(ttinterest2.value) || 0;
+            const ttinterest3Value = parseFloat(ttinterest3.value) || 0;
+            const ttinterest4Value = parseFloat(ttinterest4.value) || 0;
+            const total = ttinterest1Value + ttinterest2Value + ttinterest3Value + ttinterest4Value;
+            tttotalInterest.value = total.toFixed(0);
+            Totalgty();
+        }
+
+
+        // 77] Total Gratuity as court order
+
+        const gtydif = document.getElementById('grty-diff-j');
+        const tint = document.getElementById('total-intr');
+        const totalgty = document.getElementById('total-grty-intr');
+
+        function Totalgty() {
+            const gtydifValue = parseFloat(gtydif.value) || 0;
+            const tintValue = parseFloat(tint.value) || 0;
+            const total2 = gtydifValue + tintValue;
+            totalgty.value = total2.toFixed(0);
+        }
+
+        // Convert YYYY-MM-DD to DD-MM-YYYY
+        function formatDate(dateStr) {
+            const [year, month, day] = dateStr.split("-");
+            return `${day}-${month}-${year}`;
+
+        }
+
+        function convertAndDisplayDate(inputId) {
+            const input = document.getElementById(inputId);
+            const formattedDate = formatDate(input.value);
+            const outputId = inputId + "-output";
+            const output = document.getElementById(outputId);
+            output.value = formattedDate;
+
+        }
+
+
+
+// Function to format next-ret date as DD-MM-YYYY
+    function formatNextRet(datenext) {
+        const d = new Date(datenext);
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JavaScript
+        const year = d.getFullYear();
+        return `${day}-${month}-${year}`;
+    }
+
+    // Function to update next-ret-output field
+    function updateNextRetOutput() {
+        const nextRetInput = document.getElementById('next-ret').value;
+        if (nextRetInput) {
+            const formattedDate = formatNextRet(nextRetInput);
+            document.getElementById('next-ret-output').value = formattedDate;
+        }
+    }
+
+    // Automatically update the output when the date in next-ret changes
+    document.getElementById('next-ret').addEventListener('change', updateNextRetOutput);
+
+
+
+        // Document generator----------------------------------      
+
+        function generate(content) {
+            const dclientid = document.getElementById("clientid").value;
+            const pname = document.getElementById("pname").value;
+            const fname = document.getElementById("fname").value;
+            const lname = document.getElementById("lname").value;
+            const address = document.getElementById("address").value;
+            const DatA = document.getElementById("DatA").value;
+            const DatR = document.getElementById("DatR").value;
+            const DivatR = document.getElementById("DivatR").value;
+            const shortform = document.getElementById("shortform").value;
+            const poc = document.getElementById("poc").value;
+            const dobp = document.getElementById("dob-output").value;
+            const filingAge = document.getElementById("filingAge").value;
+            const dateOfAppointment = document.getElementById("dateOfAppointment-output").value;
+            const dateOfRetirement = document.getElementById("dateOfRetirement-output").value;
+            const totalService = document.getElementById("totalService").value;
+            const dorp = document.getElementById("dorp-output").value;
+            const doln = document.getElementById("doln-output").value;
+            const dof = document.getElementById("dof-output").value;
+            const dateOfAppConsidered = document.getElementById("dateOfAppConsidered-output").value;
+            const inactiveServiceY = document.getElementById("inactiveServiceY").value;
+            const inactiveServiceM = document.getElementById("inactiveServiceM").value;
+            const inactiveServiceD = document.getElementById("inactiveServiceD").value;
+            const dateOfAppJ = document.getElementById("dateOfAppJ-output").value;
+
+            const totalServiceConsidered = document.getElementById("totalServiceConsidered").value;
+            const respondentname = document.getElementById("respondentname").value;
+            const respondentaddress = document.getElementById("respondentaddress").value;
+            const basicSalary = document.getElementById("basicSalary").value;
+            const da = document.getElementById("da").value;
+            const hra = document.getElementById("hra").value;
+            const hrap = document.getElementById("hrap").value;
+            const cca = document.getElementById("cca").value;
+            const daRet2 = document.getElementById("daRet2").value;
+            const daRetdoc = document.getElementById("daRet").value;
+            //console.log("daRet: ", daRetdoc);
+            const oneMonthPay = document.getElementById("oneMonthPay").value;
+            const gratuityEntitled = document.getElementById("gratuityEntitled").value;
+
+            const ionems = document.getElementById("ione").value;
+            const ionedatems = document.getElementById("ionedate-output").value;
+
+            const itwoms = document.getElementById("itwo").value;
+            const itwodatems = document.getElementById("itwodate-output").value;
+
+            const ithreems = document.getElementById("ithree").value;
+            const ithreedatems = document.getElementById("ithreedate-output").value;
+
+            const ifourms = document.getElementById("ifour").value;
+            const ifourdatems = document.getElementById("ifourdate-output").value;
+
+            const amountpaid = document.getElementById("amountpaid").value;
+            const gratuityDifference = document.getElementById("gratuityDifference").value;
+            const delay = document.getElementById("delay").value;
+
+            const docone = document.getElementById("documentone").value;
+            const doconedate = document.getElementById("doconedate-output").value;
+
+            const doctwo = document.getElementById("documenttwo").value;
+            const doctwodate = document.getElementById("doctwodate-output").value;
+
+            const docthree = document.getElementById("documentthree").value;
+            const docthreedate = document.getElementById("docthreedate-output").value;
+
+            const docfour = document.getElementById("documentfour").value;
+            const docfourdate = document.getElementById("docfourdate-output").value;
+
+            const docfive = document.getElementById("documentfive").value;
+            const docfivedate = document.getElementById("docfivedate-output").value;
+
+            const docsix = document.getElementById("documentsix").value;
+            const docsixdate = document.getElementById("docsixdate-output").value;
+
+            const caseNo = document.getElementById("caseNo").value;
+            const caseYear = document.getElementById("caseYear").value;
+            const caseNoOld = document.getElementById("caseNoOld").value;
+
+            const jname = document.getElementById("jname").value;
+            //const doOdr = document.getElementById("doOdr-output").value;
+            const pAdv = document.getElementById("pAdv").value;
+            const resAdv = document.getElementById("resAdv").value;
+            const basicR = document.getElementById("basicR").value;
+            const daR = document.getElementById("daR").value;
+            const bdaR = document.getElementById("bdaR").value;
+            const gratuityEntitledR = document.getElementById("gratuityEntitledR").value;
+            const rw1name = document.getElementById("rw-1-name").value;
+            const rw2name = document.getElementById("rw-2-name").value;
+
+            const grtycalactauto = document.getElementById("grty-cal-act-auto").value;
+            const grtycalregauto = document.getElementById("grty-cal-reg-auto").value;
+
+            const balamtauto1 = document.getElementById("bal-amt-auto-1").value;
+            const balamtauto2 = document.getElementById("bal-amt-auto-2").value;
+            const balamtauto3 = document.getElementById("bal-amt-auto-3").value;
+
+            
+              // For 'unique-balances' input
+                const ubalInput = document.getElementById("unique-balances").value;
+                const ubalArray = ubalInput.split(",").map(amount => amount.trim());
+
+                const ubal1 = ubalArray[0] || null;
+                const ubal2 = ubalArray[1] || null;
+                const ubal3 = ubalArray[2] || null;
+                const ubal4 = ubalArray[3] || null;
+
+                //console.log("Balances:", ubalInput, ubal1, ubal2, ubal3, ubal4);
+
+            const chequeno1 = document.getElementById("cheque-no-1").value;
+            const chequeno2 = document.getElementById("cheque-no-2").value;
+            const chequeno3 = document.getElementById("cheque-no-3").value;
+
+            const explastno = document.getElementById("ex-p-last-no").value;
+            const exrlastno = document.getElementById("ex-r-last-no").value;
+
+            const basicasperj = document.getElementById("basic-as-per-j").value;
+            const bdaasperj = document.getElementById("bda-as-per-j").value;
+            const daasperj = document.getElementById("da-as-per-j").value;
+
+            const serviceasperj = document.getElementById("service-as-per-j").value;
+            const grtyasperj = document.getElementById("grty-as-per-j").value;
+            const totalgrtyj = document.getElementById("total-grty-j").value;
+
+            const orderdate = document.getElementById("orderdate-output").value;
+            const grtydiffj = document.getElementById("grty-diff-j").value;
+            const nextret = document.getElementById("next-ret-output").value;
+
+            console.log("next-ret", nextret)
+
+            const intr1 = document.getElementById("intr-1").value;
+            const intr2 = document.getElementById("intr-2").value;
+            const intr3 = document.getElementById("intr-3").value;
+            const intr4 = document.getElementById("intr-4").value;
+
+            
+            const amountsInput = document.getElementById("unique-interests").value; // Input example: '₹100, ₹200, ₹150'
+
+               // Step 1: Split the input by commas
+               const amountsArray = amountsInput.split(",").map(amount => amount.trim()); // Split and trim the whitespace
+
+               // Step 2: Store them in individual constants (max 4 amounts)
+               const amount1 = amountsArray[0] || null; // If less than 4 amounts, assign `null` to the rest
+               const amount2 = amountsArray[1] || null;
+               const amount3 = amountsArray[2] || null;
+               const amount4 = amountsArray[3] || null;
+
+               console.log("Interests:", amount1, amount2, amount3, amount4);
+
+
+
+
+            const totalintr = document.getElementById("total-intr").value;
+            const totalgrtyintr = document.getElementById("total-grty-intr").value;
+            const epfiling = document.getElementById("epfiling-output").value;
+
+
+
+            const delayY = Number(document.getElementById("delay").value.split(" ")[0]);
+            const delayM = Number(document.getElementById("delay").value.split(" ")[2]);
+            const delayD = Number(document.getElementById("delay").value.split(" ")[4]);
+
+
+            const fageY = Number(document.getElementById("filingAge").value.split(" ")[0]);
+            const fageM = Number(document.getElementById("filingAge").value.split(" ")[2]);
+            const fageD = Number(document.getElementById("filingAge").value.split(" ")[4]);
+
+            const totalServiceY = Number(document.getElementById("totalService").value.split(" ")[0]);
+            const totalServiceM = Number(document.getElementById("totalService").value.split(" ")[2]);
+            const totalServiceD = Number(document.getElementById("totalService").value.split(" ")[4]);
+
+            const totalServiceConsideredY = Number(document.getElementById("totalServiceConsidered").value.split(" ")[0]);
+            const totalServiceConsideredM = Number(document.getElementById("totalServiceConsidered").value.split(" ")[2]);
+            const totalServiceConsideredD = Number(document.getElementById("totalServiceConsidered").value.split(" ")[4]);
+
+            const serviceasperjY = Number(document.getElementById("service-as-per-j").value.split(" ")[0]);
+            const serviceasperjM = Number(document.getElementById("service-as-per-j").value.split(" ")[2]);
+            const serviceasperjD = Number(document.getElementById("service-as-per-j").value.split(" ")[4]);
+
+            const zip = new PizZip(content);
+            const doc = new window.docxtemplater(zip, {
+                paragraphLoop: true,
+                linebreaks: true,
+            });
+
+
+            doc.setData({
+                id: dclientid,
+                1: pname,
+                2: fname,
+                a2: lname,
+                3: address,
+                4: DatA,
+                5: DatR,
+                6: DivatR,
+                7: poc,
+                8: dobp,
+
+                9: filingAge,
+                Y9: fageY,
+                M9: fageY,
+                D9: fageY,
+
+                10: dateOfAppointment,
+                11: dateOfRetirement,
+
+                12: totalService,
+                Y12: totalServiceY,
+                M12: totalServiceM,
+                D12: totalServiceD,
+
+                13: dorp,
+                14: doln,
+                15: dof,
+                16: dateOfAppConsidered,
+
+                Y17: inactiveServiceY,
+                M17: inactiveServiceM,
+                D17: inactiveServiceD,
+
+                18: dateOfAppJ,
+
+                19: totalServiceConsidered,
+                Y19: totalServiceConsideredY,
+                M19: totalServiceConsideredM,
+                D19: totalServiceConsideredD,
+
+                20: respondentname,
+                21: respondentaddress,
+                22: basicSalary,
+                a22: da,
+                23: daRet2,
+                a23: daRetdoc,
+
+                24: hra,
+                a24: hrap,
+                25: cca,
+                26: oneMonthPay,
+                27: gratuityEntitled,
+                28: ionems,
+                29: ionedatems,
+                30: itwoms,
+                31: itwodatems,
+                32: ithreems,
+                33: ithreedatems,
+                34: ifourms,
+                35: ifourdatems,
+                36: amountpaid,
+                37: gratuityDifference,
+                38: delay,
+                Y38: delayY,
+                M38: delayM,
+                D38: delayD,
+
+                a39: docone,
+                b39: doconedate,
+                c39: doctwo,
+                d39: doctwodate,
+                e39: docthree,
+                f39: docthreedate,
+                g39: docfour,
+                h39: docfourdate,
+                i39: docfive,
+                j39: docfivedate,
+                k39: docsix,
+                l39: docsixdate,
+
+                40: caseNo,
+                41: caseYear,
+                42: caseNoOld,
+                43: jname,
+                //44: doOdr,
+                45: pAdv,
+                46: resAdv,
+                47: basicR,
+                48: daR,
+                49: bdaR,
+                50: gratuityEntitledR,
+                51: rw1name,
+                52: rw2name,
+                53: grtycalactauto,
+                54: grtycalregauto,
+                55: balamtauto1,
+                56: balamtauto2,
+                57: balamtauto3,
+                A55: ubalInput,
+                a55: ubal1,
+                b55: ubal2,
+                c55: ubal3,
+                d55: ubal4,
+
+
+                58: chequeno1,
+                59: chequeno2,
+                60: chequeno3,
+                61: explastno,
+                62: exrlastno,
+                63: basicasperj,
+                64: bdaasperj,
+                65: daasperj,
+
+                66: serviceasperj,
+                Y66: serviceasperjY,
+                M66: serviceasperjM,
+                D66: serviceasperjD,
+
+                67: grtyasperj,
+                68: totalgrtyj,
+                69: orderdate,
+                70: grtydiffj,
+                71: nextret,
+                72: intr1,
+                73: intr2,
+                74: intr3,
+                75: intr4,
+                A75: amountsInput,
+                a75: amount1,
+                b75: amount2,
+                c75: amount3,
+                d75: amount4,
+
+                76: totalgrtyintr,
+                77: totalgrtyintr,
+                78: epfiling,
+
+            });
+
+
+            doc.render();
+            const updatedContent = doc.getZip().generate({
+                type: "blob",
+                mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                compression: "DEFLATE",
+            });
+            const fileName = lname + "-" + shortform + "-" + "Grty" + ".docx"; // generate filename from user's name input
+            saveAs(updatedContent, fileName);
+        }
+
+
+        const fileInput = document.getElementById("file-input");
+        fileInput.addEventListener("change", function() {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function() {
+                const content = reader.result;
+                generate(content);
+                fileInput.value = null;
+            };
+            reader.readAsBinaryString(file);
+        });
+
+    </script>
+</body>
+
+</html>

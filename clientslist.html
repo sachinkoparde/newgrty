@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients list</title>
+  <style>
+    /* For WebKit browsers (e.g., Chrome, Safari) */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #7883c9; /* Color of the scrollbar thumb */
+      border-radius: 5px; /* Rounded corners for the scrollbar thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #f0f1ff; /* Color of the scrollbar track */
+    }
+
+    body {
+      font-family: 'Helvetica', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #data-container {
+      display: flex;
+      width: 100%;
+      background-color: #fff;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #client-list-container {
+      flex: 0 0 30%;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+    }
+
+    #client-list-header {
+      padding: 30px;
+      background-color: #ffffff;
+      color: #405cbf;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #405cbf;
+    }
+
+    #client-list-header h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .search-bar {
+      width: 230px;
+      padding-top: 8px;
+      padding-right: 9px;
+      padding-bottom: 8px;
+      padding-left: 17px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      font-family: 'Bahnschrift SemiBold', sans-serif; 
+      color: #6f6f6f;
+      box-sizing: border-box;
+      border: 0px solid #ddd;
+      background-color: #f0f1ff;
+    }
+
+    .search-bar::placeholder {
+      color: #d5d5d5; /* Change the color of the placeholder text */
+    }
+
+    .client-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .client-list li {
+      padding-top: 17px;
+      padding-right: 20px;
+      padding-bottom: 3px;
+      padding-left: 33px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .client-list li:hover {
+      background-color: #e0e0e0;
+    }
+
+    .client-id {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .client-name {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .client-date {
+      font-size: 12px;
+      color: #888;
+      text-align: right;
+    }
+
+    #client-details-container {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #405cbf;
+      font-family: 'Bahnschrift SemiBold', sans-serif; 
+    }
+
+    .client-details {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .client-details table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .client-details th, .client-details td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .client-details th {
+      background-color: #f9f8ff;
+    }
+
+    #delete-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      background-color: #ff4d4d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #delete-button:hover {
+      background-color: #ff1a1a;
+    }
+
+    #loading-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .loading-circle {
+      border: 8px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 8px solid #405cbf;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .no-client-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 20%;
+      color: #6f6f6f;
+      font-size: 20px;
+      font-family: 'Bahnschrift SemiBold', sans-serif; 
+      text-align: center;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="data-container">
+    <div id="client-list-container">
+      <div id="client-list-header">
+        <h2>Clients</h2>
+        <input type="text" class="search-bar" id="search-bar" onkeyup="filterClients()" placeholder="Search...">
+      </div>
+      <ul class="client-list" id="client-list"></ul>
+      <div id="loading-container"><div class="loading-circle"></div></div>
+    </div>
+    <div id="client-details-container">
+      <div class="client-details no-client-message" id="client-details">Select a file to see details</div>
+    </div>
+  </div>
+  <button id="delete-button">Delete</button>
+  <script>
+    const sheetdbUrl = 'https://sheetdb.io/api/v1/bxaz8o4uqmdx0'; // Replace with your actual SheetDB endpoint URL
+    let allClients = [];
+    let currentClient = null; // To keep track of the currently displayed client
+
+    async function fetchData() {
+      try {
+        const response = await fetch(sheetdbUrl);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        let data = await response.json();
+
+        // Sort the data in descending order based on Client ID
+        data.sort((a, b) => b['Client ID'] - a['Client ID']);
+
+        return data;
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    }
+
+    function formatDate(dateStr) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateStr).toLocaleDateString(undefined, options);
+    }
+
+    function displayClients(clients) {
+      const list = document.getElementById('client-list');
+      list.innerHTML = '';
+      clients.forEach(client => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <div class="client-id">${client['Client ID']}</div>
+          <div class="client-name">${client['First name']} ${client['Last name']}</div>
+          <div class="client-date">${formatDate(client['Created on'])}</div>
+        `;
+        listItem.addEventListener('click', () => showClientDetails(client));
+        list.appendChild(listItem);
+      });
+    }
+
+    function showClientDetails(client) {
+      currentClient = client; // Set the current client
+      const detailsContainer = document.getElementById('client-details');
+      detailsContainer.classList.remove('no-client-message');
+      detailsContainer.innerHTML = `
+        <h3>Details of </h3><h2>${client['First name']} ${client['Last name']}</h2>
+        <table>
+          <tbody>
+            ${Object.entries(client).map(([key, value]) => `
+              <tr>
+                <th>${key}</th>
+                <td>${value}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function filterClients() {
+      const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+      const filteredClients = allClients.filter(client =>
+        `${client['First name']} ${client['Last name']} ${client['Client ID']}`.toLowerCase().includes(searchTerm)
+      );
+      displayClients(filteredClients);
+    }
+
+    async function deleteClient() {
+      if (!currentClient) {
+        alert('No client selected for deletion');
+        return;
+      }
+
+      const clientId = currentClient['Client ID'];
+      const deleteUrl = `${sheetdbUrl}/Client ID/${clientId}`;
+
+      try {
+        const response = await fetch(deleteUrl, { method: 'DELETE' });
+        if (response.ok) {
+          alert('Client deleted successfully');
+          // Refresh the client list
+          allClients = allClients.filter(client => client['Client ID'] !== clientId);
+          displayClients(allClients);
+          // Clear the client details section
+          document.getElementById('client-details').innerHTML = 'Select a file to see details';
+          document.getElementById('client-details').classList.add('no-client-message');
+          currentClient = null;
+        } else {
+          throw new Error('Failed to delete client');
+        }
+      } catch (error) {
+        console.error('Delete error:', error);
+        alert('Failed to delete client');
+      }
+    }
+
+    document.getElementById('delete-button').addEventListener('click', deleteClient);
+
+    fetchData().then(data => {
+      allClients = data;
+      displayClients(allClients);
+      document.getElementById('loading-container').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
