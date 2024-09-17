@@ -1366,8 +1366,7 @@ window.onload = function () {
                             event.preventDefault();
                         }
                     };
-
-                    input.oninput = function() {
+input.oninput = function() {
                         if (this.value.length > 0) {
                             if (!this.value.startsWith(prefix)) {
                                 this.value = prefix + this.value;
