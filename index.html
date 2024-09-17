@@ -134,7 +134,18 @@
                     <div class="single">
                         <label for="DivatR" class="label">Division @ retirement</label>
                         <select id="DivatR" name="DivatR" class="form-input" onchange="updateShortForm()">
-                            <option style="Select division">Select division</option>
+                            <option style="Select division">ವಿಭಾಗ ಆಯ್ಕೆಮಾಡಿ</option>
+                           <option value="ಬಾಗಲಕೋಟೆ">ಬಾಗಲಕೋಟೆ</option>
+                           <option value="ಬೆಳಗಾವಿ">ಬೆಳಗಾವಿ</option>
+                           <option value="ಚಿಕ್ಕೋಡಿ">ಚಿಕ್ಕೋಡಿ</option>
+                           <option value="ಧಾರವಾಡ">ಧಾರವಾಡ</option>
+                           <option value="ಹುಬ್ಬಳ್ಳಿ">ಹುಬ್ಬಳ್ಳಿ</option>
+                           <option value="ಹುಬ್ಬಳ್ಳಿ-ಗ್ರಾಮೀಣ">ಹುಬ್ಬಳ್ಳಿ-ಗ್ರಾಮೀಣ</option>
+                           <option value="ಹಾವೇರಿ">ಹಾವೇರಿ</option>
+                           <option value="ಗದಗ">ಗದಗ</option>
+                           <option value="ಉತ್ತರ ಕನ್ನಡ/ಸಿರಸಿ">ಉತ್ತರ ಕನ್ನಡ/ಸಿರಸಿ</option>
+
+
                             <option value="Bagalkot">Bagalkot</option>
                             <option value="Belagavi">Belagavi</option>
                             <option value="Chikodi">Chikodi</option>
@@ -1456,6 +1467,34 @@ window.onload = function () {
                 case "Uttara-Kannada/Sirsi":
                     shortForm = "UK";
                     break;
+
+                case "ಬಾಗಲಕೋಟೆ":
+                    shortForm = "BGK";
+                    break;
+                case "ಬೆಳಗಾವಿ":
+                    shortForm = "BGM";
+                    break;
+                case "ಚಿಕ್ಕೋಡಿ":
+                    shortForm = "CKD";
+                    break;
+                case "ಧಾರವಾಡ":
+                    shortForm = "DWR";
+                    break;
+                case "ಹುಬ್ಬಳ್ಳಿ":
+                    shortForm = "HBL";
+                    break;
+                case "ಹುಬ್ಬಳ್ಳಿ-ಗ್ರಾಮೀಣ":
+                    shortForm = "HBL(R)";
+                    break;
+                case "ಹಾವೇರಿ":
+                    shortForm = "HVR";
+                    break;
+                case "ಗದಗ":
+                    shortForm = "GDG";
+                    break;
+                case "ಉತ್ತರ ಕನ್ನಡ/ಸಿರಸಿ":
+                    shortForm = "UK";
+                    break;    
 
             }
 
