@@ -75,7 +75,7 @@
     }
 
     .search-bar::placeholder {
-      color: #d5d5d5; /* Change the color of the placeholder text */
+      color: #d5d5d5;
     }
 
     .client-list {
@@ -119,6 +119,7 @@
       padding: 20px;
       overflow-y: auto;
       position: relative;
+      display: block; /* Show details by default */
     }
 
     h2 {
@@ -203,6 +204,45 @@
       border-radius: 10px;
       padding: 20px;
     }
+
+    /* Back button for mobile */
+    #back-button {
+      display: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background-color: #405cbf;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    /* Media query for screens smaller than 768px */
+    @media (max-width: 768px) {
+      #client-list-container {
+        flex: 0 0 100%; /* Full width for client list */
+      }
+
+      #client-details-container {
+        display: none; /* Hide details on small screens */
+      }
+
+      .show-details #client-list-container {
+        display: none; /* Hide list when details are shown */
+      }
+
+      .show-details #client-details-container {
+        display: block;
+        flex: 0 0 100%; /* Full width for client details */
+      }
+
+      /* Back button visible only on small screens */
+      #back-button {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -216,6 +256,7 @@
       <div id="loading-container"><div class="loading-circle"></div></div>
     </div>
     <div id="client-details-container">
+      <button id="back-button" onclick="goBack()">Back</button>
       <div class="client-details no-client-message" id="client-details">Select a file to see details</div>
     </div>
   </div>
@@ -279,6 +320,11 @@
           </tbody>
         </table>
       `;
+
+      // Only add 'show-details' class on small screens
+      if (window.innerWidth <= 768) {
+        document.body.classList.add('show-details');
+      }
     }
 
     function filterClients() {
@@ -319,6 +365,10 @@
     }
 
     document.getElementById('delete-button').addEventListener('click', deleteClient);
+
+    function goBack() {
+      document.body.classList.remove('show-details');
+    }
 
     fetchData().then(data => {
       allClients = data;
