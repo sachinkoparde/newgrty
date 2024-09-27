@@ -58,6 +58,31 @@
 
     <div class="Container">
 
+        <!-- Loading Spinner with Background Square (Initially hidden) -->
+<div id="loading-spinner" style="display: none;">
+    <div class="loading-background">
+        <svg width="50" height="50" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="35" stroke="#f7edeb" stroke-width="5" fill="none" stroke-dasharray="164" stroke-dashoffset="0">
+                <animate attributeName="stroke-dashoffset" values="164;0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+</div>
+
+
+<!-- Loading Spinner with Background Square (Initially hidden) -->
+<div id="loading-wheel" style="display: none;">
+    <div class="loading-wbackground">
+        <svg width="50" height="50" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="35" stroke="#f7edeb" stroke-width="5" fill="none" stroke-dasharray="164" stroke-dashoffset="0">
+                <animate attributeName="stroke-dashoffset" values="164;0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+</div>
+
+
+
 
 
 
@@ -1063,20 +1088,37 @@
 
 
 
-        //submit event
-        var form = document.getElementById('sheetdb-form');
-        form.addEventListener("submit", e => {
-            e.preventDefault();
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(document.getElementById("sheetdb-form")),
-            }).then(
-                response => response.json()
-            ).then((html) => {
-                // you can put any JS code here
-                alert('Saved')
-            });
-        });
+        // Get the loading spinner element (already defined)
+const loadingWheel = document.getElementById('loading-wheel');
+
+// Submit event for form
+var form = document.getElementById('sheetdb-form');
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    // Show loading spinner when the form is being submitted
+    loadingWheel.style.display = 'block';
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+    })
+    .then(response => response.json())
+    .then((html) => {
+        // Hide the loading spinner after the form is successfully submitted
+        loadingWheel.style.display = 'none';
+
+        // Show the saved message
+        alert('Saved');
+    })
+    .catch(error => {
+        // Hide the spinner even if there is an error
+        loadingWheel.style.display = 'none';
+
+        console.error('Error during form submission:', error);
+    });
+});
+
 
 
         //Fetch / Import
@@ -1153,14 +1195,20 @@
 
 
 
-        function fetchClientData(clientId) {
-            const apiUrl = "https://sheetdb.io/api/v1/bxaz8o4uqmdx0";
+        // Get the loading spinner element
+const loadingSpinnerr = document.getElementById('loading-spinner');
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const matchingClient = data.find(client => client["Client ID"] === clientId.toString());
-                    if (matchingClient) {
+function fetchClientData(clientId) {
+    const apiUrl = "https://sheetdb.io/api/v1/bxaz8o4uqmdx0";
+
+    // Show loading spinner before fetching data
+    loadingSpinner.style.display = 'block';
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const matchingClient = data.find(client => client["Client ID"] === clientId.toString());
+            if (matchingClient) {
                         pnameipInput.value = matchingClient["First name"];
                         fnameipInput.value = matchingClient["Middle name"];
                         lnameipInput.value = matchingClient["Last name"];
@@ -1227,6 +1275,10 @@
                         ithreedateipInput.value = matchingClient["ithreedate"];
                         ifouripInput.value = matchingClient["ifour"];
                         ifourdateipInput.value = matchingClient["ifourdate"];
+
+                        // Hide the spinner once the data is populated
+                        loadingSpinner.style.display = 'none';
+
                         calculateAge();
                         calculatefilingAge();
                         calculatedelay();
@@ -1251,46 +1303,65 @@
                         addDocumentPrefix();
 
                     } else {
-                        // Handle case when client ID doesn't exist
-                        // Display an error message or perform any other action
-                    }
-                })
-                .catch(error => {
-                    // Handle error when fetching data from the API
-                    // Display an error message or perform any other action
-                });
-        }
+                // Handle case when client ID doesn't exist
+                alert("Client ID not found");
 
-        importButton.addEventListener("click", () => {
-            const clientId = clientIdInput.value;
-            if (clientId) {
-                fetchClientData(clientId);
+                // Hide the spinner if no matching client
+                loadingSpinner.style.display = 'none';
             }
+        })
+        .catch(error => {
+            console.error('Error fetching client data:', error);
+
+            // Hide the spinner in case of error
+            loadingSpinner.style.display = 'none';
         });
+}
+
+// Attach the function to the click event of the "Import" button
+importButton.addEventListener("click", () => {
+    const clientId = clientIdInput.value;
+    if (clientId) {
+        fetchClientData(clientId);
+    }
+});
 
 
-        //Generate new Client ID      
-        function generateClientId() {
-            // Make an API call to retrieve the latest client ID from the database
-            fetch('https://sheetdb.io/api/v1/bxaz8o4uqmdx0')
-                .then(response => response.json())
-                .then(data => {
-                    // Get the previous client ID from the database
-                    const previousClientId = data[data.length - 1]['Client ID'];
+        // Get the loading spinner element
+const loadingSpinner = document.getElementById('loading-spinner');
 
-                    // Generate a new client ID by incrementing the previous client ID by 1
-                    const newClientId = parseInt(previousClientId) + 1;
+// Generate new Client ID with loading animation
+function generateClientId() {
+    // Show loading spinner
+    loadingSpinner.style.display = 'block';
 
-                    // Set the new client ID value in the input field
-                    document.getElementById('clientid').value = newClientId;
-                })
-                .catch(error => {
-                    console.error('Error retrieving client ID:', error);
-                });
-        }
+    // Make an API call to retrieve the latest client ID from the database
+    fetch('https://sheetdb.io/api/v1/bxaz8o4uqmdx0')
+        .then(response => response.json())
+        .then(data => {
+            // Get the previous client ID from the database
+            const previousClientId = data[data.length - 1]['Client ID'];
 
-        // Attach the function to the click event of the "Generate Client ID" button
-        document.getElementById('generate-btn').addEventListener('click', generateClientId);
+            // Generate a new client ID by incrementing the previous client ID by 1
+            const newClientId = parseInt(previousClientId) + 1;
+
+            // Set the new client ID value in the input field
+            document.getElementById('clientid').value = newClientId;
+
+            // Hide the loading spinner
+            loadingSpinner.style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error retrieving client ID:', error);
+
+            // Hide the loading spinner even if there's an error
+            loadingSpinner.style.display = 'none';
+        });
+}
+
+// Attach the function to the click event of the "Generate Client ID" button
+document.getElementById('generate-btn').addEventListener('click', generateClientId);
+
         
         
         
