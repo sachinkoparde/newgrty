@@ -10,26 +10,20 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="Programfiles/Logodesign.png" alt="Logo">
+            <img src="Programfiles/Logodesign2.png" alt="Logo">
         </div>
         <div class="title">
             <img src="Programfiles/Frame.svg" alt="Logo">
         </div>
         
- <div style="font-size: 9px;
-                    padding: 12px 14px;
-                    border: none;
-                    font-weight: 200;
-                    background-color: #f9f4d5;
-                    border-radius: 30px;
-                    cursor: pointer;">
-            
-            <a id="link" href="clientslist.html">
-                <img src="Programfiles/Dash.svg" alt="Fullscreen" width="17" height="17">
-            </a>
-        </div>
+ <button id="toggleButton">Clients</button>
 
     </header>
+
+    <!-- Mobile window (hidden by default) -->
+    <div id="mobileWindow" class="mobile-window">
+        <iframe src="https://sachinkoparde.github.io/newgrty/clientslist.html" frameborder="0"></iframe>
+    </div>
 
 
     <div class="navcontainer">
@@ -159,7 +153,7 @@
                     <div class="single">
                         <label for="DivatR" class="label">Division @ retirement</label>
                         <select id="DivatR" name="DivatR" class="form-input" onchange="updateShortForm()">
-                            <option style="Select division">ವಿಭಾಗ ಆಯ್ಕೆಮಾಡಿ</option>
+                            <option style="Select division">----</option>
                            <option value="ಬಾಗಲಕೋಟೆ">ಬಾಗಲಕೋಟೆ</option>
                            <option value="ಬೆಳಗಾವಿ">ಬೆಳಗಾವಿ</option>
                            <option value="ಚಿಕ್ಕೋಡಿ">ಚಿಕ್ಕೋಡಿ</option>
@@ -995,7 +989,7 @@
             <img src="Programfiles/Credits.png" alt="title2">
         </div>
         <div class="logo">
-            <img src="Programfiles/Logodesign.png" alt="Logo">
+            <img src="Programfiles/Logodesign2.png" alt="Logo">
         </div>
 
 
@@ -1106,6 +1100,29 @@
 
 
         });
+
+
+
+        // Get the toggle button and mobile window elements
+const toggleButton = document.getElementById('toggleButton');
+const mobileWindow = document.getElementById('mobileWindow');
+
+// Toggle the visibility of the mobile window when the button is clicked
+toggleButton.addEventListener('click', () => {
+    if (mobileWindow.style.display === 'none' || mobileWindow.style.display === '') {
+        mobileWindow.style.display = 'block'; // Show the window
+    } else {
+        mobileWindow.style.display = 'none'; // Hide the window
+    }
+});
+
+// Optional: Hide the window if clicked outside
+window.addEventListener('click', (e) => {
+    if (e.target !== toggleButton && !mobileWindow.contains(e.target)) {
+        mobileWindow.style.display = 'none'; // Hide the window if clicking outside
+    }
+});
+
 
 
 

@@ -98,7 +98,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #7e7e7e;
-    background-color: #f3f3f3;
+    background-color: #e1e1e1;
     transition-duration: 0.3s;
 }
 
@@ -113,7 +113,7 @@ body {
 }
 
 .steps li.active span {
-    background: linear-gradient(to right, #94a4c4, #7c8cb4);
+    background: linear-gradient(to right, #7f9acf, #4b66a9);
     border-color: #19728d;
     color: #FFFFFF;
 
@@ -149,7 +149,7 @@ body {
     padding: 13px 22px;
     border-radius: 5px;
     border-top-left-radius: 0px;
-    border: 1px solid #a8a8a8;
+    border: 1px solid #878787;
     background: none;
     font-weight: 500;
     font-size: 16px;
@@ -178,7 +178,7 @@ body {
 
 
 .form-input:focus {
-    border-color: #c741f8;
+    border-color: #4b66a9;
     box-shadow: 0px 10px 8px rgba(163, 29, 195, 0.05);
     border-radius: 20px;
     border-top-left-radius: 0px;
@@ -210,7 +210,7 @@ body {
     line-height: 24px;
     margin-bottom: 20px;
     top: 50%;
-    background-color: #ededed;
+    background-color: #e6e4e4;
     border: 1px solid #ededed;
     border-radius: 10px;
     border-bottom-right-radius: 0px;
@@ -224,14 +224,14 @@ body {
     transform: translateY(-150%) scale(0.8);
     font-size: 12px;
     font-weight: 700;
-    color: #c741f8;
+    color: #4b66a9;
 }
 
 .form-input:valid + .label {
     transform: translateY(-150%) scale(0.8);
     font-size: 12px;
     font-weight: 700;
-    color: #536387;
+    color: #4b66a9;
 }
 
 
@@ -253,7 +253,7 @@ body {
 
 .gray {
     background-color: rgba(190, 186, 239, 0.05);
-    border: 1px solid #5cb4ce;
+    border: 1px solid #cfcfcf;
 
 }
 
@@ -328,7 +328,7 @@ header {
     justify-content: center;
     align-items: center;
     margin-top: 0px;
-    margin-right: 114px;
+    margin-right: 65px;
 }
 
 .title img {
@@ -628,6 +628,38 @@ h2 {
     width: 16px;
     height: 16px;
     margin-right: 8px; /* Space between icon and text */
+}
+
+#toggleButton {
+    background-color: #fde0d1;
+    border: 1px solid #fde0d1;
+    padding: 10px 15px;
+    border-radius: 26px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Hidden mobile window */
+.mobile-window {
+    display: none;
+    position: absolute;
+    top: 90px; /* Position below the button */
+    right: 20px; /* Align it to the right corner */
+    width: 350px; /* Mobile size width */
+    height: 400px; /* Mobile size height */
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Drop shadow for a floating effect */
+    border: 5px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Style the iframe */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 
